@@ -1,0 +1,83 @@
+---
+import SectionLabel from "./SectionLabel.astro";
+
+const freeFeatures = [
+  "Live panel values",
+  "Sparklines on every key",
+  "Alert rule states (single + count)",
+  "Threshold colors from your panel",
+  "Multiple Grafana instances",
+  "Dashboard browser in the inspector",
+  "Config export (bridge to Pro)",
+];
+
+const proFeatures = [
+  "Everything in Free",
+  "Custom labels per key",
+  "Font size + threshold overrides",
+  "Gauge display style (radial + arc)",
+  "Trend arrows",
+  "Webhook on threshold breach",
+  "Custom HTTP headers (CF Access, etc.)",
+  "Alert pending styles",
+  "Per-key time-range + refresh override",
+  "Config import",
+];
+---
+<section id="tiers" class="border-t border-(--color-border)">
+  <div class="mx-auto max-w-5xl px-6 py-20">
+    <SectionLabel label="Free or Pro" />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Free card -->
+      <article class="rounded-[var(--radius-card)] border border-(--color-border) bg-(--color-bg-card) p-8 flex flex-col">
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-(--color-fg-muted) mb-1">Free</div>
+        <div class="text-3xl font-semibold mb-6">
+          $0 <span class="text-sm font-normal text-(--color-fg-muted)">forever</span>
+        </div>
+        <ul class="space-y-2.5 mb-8 flex-grow">
+          {freeFeatures.map((f) => (
+            <li class="flex gap-2.5 items-start text-sm leading-relaxed">
+              <svg width="16" height="16" viewBox="0 0 16 16" class="text-(--color-success) flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8.5l3 3 7-7"/></svg>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="#"
+          data-marketplace="free"
+          class="inline-flex items-center justify-center gap-2 w-full h-11 px-5 rounded-[var(--radius-button)] bg-transparent border border-(--color-border) text-(--color-fg) hover:bg-(--color-bg-card-hover) hover:border-(--color-border-strong) text-sm font-medium transition-colors"
+        >
+          Get Free on Marketplace
+        </a>
+      </article>
+
+      <!-- Pro card -->
+      <article class="relative rounded-[var(--radius-card)] border border-(--color-pro)/40 bg-(--color-bg-card) p-8 flex flex-col">
+        <div class="absolute -top-3 right-6 px-3 py-1 rounded-full bg-(--color-pro) text-(--color-pro-fg) text-[10px] font-bold tracking-wider uppercase">Best value</div>
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-(--color-pro) mb-1">Pro</div>
+        <div class="text-3xl font-semibold mb-6">
+          <span class="price-pro-amount">$9.99</span>
+          <span class="text-sm font-normal text-(--color-fg-muted)">once · no subscription</span>
+        </div>
+        <ul class="space-y-2.5 mb-8 flex-grow">
+          {proFeatures.map((f) => (
+            <li class="flex gap-2.5 items-start text-sm leading-relaxed">
+              <svg width="16" height="16" viewBox="0 0 16 16" class="text-(--color-pro) flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8.5l3 3 7-7"/></svg>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="#"
+          data-marketplace="pro"
+          class="inline-flex items-center justify-center gap-2 w-full h-11 px-5 rounded-[var(--radius-button)] bg-(--color-pro) text-(--color-pro-fg) hover:bg-(--color-pro-hover) text-sm font-semibold transition-colors"
+        >
+          Get Pro on Marketplace
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>

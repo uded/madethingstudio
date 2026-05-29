@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Topbar from "../components/Topbar.astro";
+import Footer from "../components/Footer.astro";
+
+const lastUpdated = "29 May 2026";
+---
+<Layout
+  title="Privacy — Made A Thing Studio"
+  description="What the Grafana for Stream Deck plugin does and doesn't collect. Zero telemetry. No accounts."
+>
+  <Topbar />
+  <main>
+    <section class="border-b border-(--color-border)">
+      <div class="mx-auto max-w-3xl px-6 pt-16 pb-8">
+        <h1 class="text-4xl font-semibold tracking-tight mb-3">Privacy</h1>
+        <div class="text-sm text-(--color-fg-muted)">Last updated: {lastUpdated}</div>
+      </div>
+    </section>
+
+    <article class="mx-auto max-w-3xl px-6 py-12 space-y-10 text-(--color-fg-muted) leading-relaxed">
+
+      <section>
+        <h2 class="text-(--color-fg) text-lg font-semibold mb-3">What the plugin collects</h2>
+        <p>Nothing. The Grafana for Stream Deck plugin sends no telemetry, analytics, or usage events anywhere. It does not call Made A Thing Studio's servers — we do not run any. There is no account, no license check, no "phone home."</p>
+      </section>
+
+      <section>
+        <h2 class="text-(--color-fg) text-lg font-semibold mb-3">What the plugin sends — and where</h2>
+        <p class="mb-3">The plugin sends HTTP requests to <strong class="text-(--color-fg)">exactly one place</strong>: the Grafana URL you configure it with. Each request carries:</p>
+        <ul class="list-disc pl-6 space-y-1.5">
+          <li>The service-account token you provided, as a bearer token.</li>
+          <li>Any custom HTTP headers you configured (Pro only).</li>
+          <li>The Grafana API path the plugin needs to render a key (dashboards, panels, query results, alert rules).</li>
+        </ul>
+        <p class="mt-3">The plugin does not include the token, your URL, or any response data in any other request, log, or file shared outside your machine.</p>
+      </section>
+
+      <section>
+        <h2 class="text-(--color-fg) text-lg font-semibold mb-3">What stays on your machine</h2>
+        <p class="mb-3">All settings — including instance URLs, tokens, and per-key panel assignments — are stored by the Stream Deck application in its local settings storage. The plugin reads and writes that storage through the official Stream Deck SDK. Nothing is transmitted off-machine by the plugin.</p>
+        <p>The plugin writes a local log file for diagnostics, in the standard Stream Deck plugin log location. The file is overwritten on rotation and never uploaded.</p>
+      </section>
+
+      <section>
+        <h2 class="text-(--color-fg) text-lg font-semibold mb-3">What this website collects</h2>
+        <p>This site is hosted on Cloudflare Pages. Cloudflare logs standard request metadata (IP address, user agent, requested URL, timestamp) for the purpose of running and protecting the site. We do not add any analytics, tag manager, or third-party script. There are no cookies set by this site.</p>
+      </section>
+
+      <section>
+        <h2 class="text-(--color-fg) text-lg font-semibold mb-3">Email and support</h2>
+        <p>If you write to <a class="text-(--color-grafana) hover:underline" href="mailto:support@madeathing.studio">support@madeathing.studio</a>, your message and email address are routed through Cloudflare Email Routing to a personal mailbox so a human can reply. We do not add you to any list, sell anything to you, or share your address.</p>
+      </section>
+
+      <section>
+        <h2 class="text-(--color-fg) text-lg font-semibold mb-3">Changes</h2>
+        <p>If this stance ever changes, the change will be visible at the top of this page and reflected in a plugin release note. The plugin will never start sending telemetry in a silent update.</p>
+      </section>
+
+      <section>
+        <h2 class="text-(--color-fg) text-lg font-semibold mb-3">Contact</h2>
+        <p>Questions, or want to verify something? Email <a class="text-(--color-grafana) hover:underline" href="mailto:support@madeathing.studio">support@madeathing.studio</a>. Source code is at <a class="text-(--color-grafana) hover:underline" href="https://git.radical.systems/uded/grafana-streamdeck" rel="noopener">git.radical.systems/uded/grafana-streamdeck</a>.</p>
+      </section>
+
+    </article>
+  </main>
+  <Footer />
+</Layout>

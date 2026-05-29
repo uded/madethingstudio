@@ -1,0 +1,23 @@
+---
+import SectionLabel from "./SectionLabel.astro";
+
+const tiles = [
+  { src: "/assets/tile-panel.svg",     label: "Panel values",  alt: "A Stream Deck key showing 1.2k requests per second with a sparkline" },
+  { src: "/assets/tile-sparkline.svg", label: "Sparklines",    alt: "A Stream Deck key showing 99.92% uptime over 24 hours" },
+  { src: "/assets/tile-alerts.svg",    label: "Alert count",   alt: "A Stream Deck key showing 12 active alerts with 2 pending" },
+  { src: "/assets/tile-fire.svg",      label: "Alert state",   alt: "A red Stream Deck key showing a 5xx error rate firing alert" },
+];
+---
+<section class="border-t border-(--color-border)">
+  <div class="mx-auto max-w-5xl px-6 py-20">
+    <SectionLabel label="What it does" />
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {tiles.map((t) => (
+        <figure class="text-center">
+          <img src={t.src} alt={t.alt} width="144" height="144" class="w-full max-w-36 mx-auto rounded-xl mb-3" />
+          <figcaption class="text-xs font-medium tracking-wider uppercase text-(--color-fg-muted)">{t.label}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

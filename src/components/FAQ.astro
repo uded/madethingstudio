@@ -1,0 +1,55 @@
+---
+import SectionLabel from "./SectionLabel.astro";
+
+const faqs = [
+  {
+    q: "Does it work with Grafana Cloud?",
+    a: "Yes. Same setup as self-hosted — paste your Cloud URL and a service-account token. Stack-locked tokens work fine.",
+  },
+  {
+    q: "What permissions does the service-account token need?",
+    a: "Read on Dashboards (to pull panels) and Read on Alerting (for alert states). Viewer role covers both for most Grafana setups. Folder ACLs apply — if a folder restricts the role, the plugin sees what the token sees.",
+  },
+  {
+    q: "Can I use it with multiple Grafana instances?",
+    a: "Free lets you save multiple instances and pick one at a time. Pro lets each key target a different instance, so a single deck can mix prod, staging, and your team's stack.",
+  },
+  {
+    q: "Why no Linux build?",
+    a: "The Stream Deck Node host is macOS + Windows only. When Elgato ships Linux, we will too.",
+  },
+  {
+    q: "Why is feature X a Pro feature and not Free?",
+    a: "Free is built for \"I want a few panels glanceable.\" Pro is built for \"I want the keys to match the dashboard ideology of my team.\" The dividing line is roughly: does it let you bend the visual? It's probably Pro.",
+  },
+  {
+    q: "Is there a refund policy?",
+    a: "Stream Deck Marketplace handles refunds. Their policy is the one that applies — message Elgato within 14 days.",
+  },
+  {
+    q: "Can I upgrade Free → Pro and keep my keys?",
+    a: "Yes. Export your config from Free, install Pro (Free can stay installed), and import. About five minutes.",
+  },
+];
+---
+<section class="border-t border-(--color-border)">
+  <div class="mx-auto max-w-5xl px-6 py-20">
+    <SectionLabel label="FAQ" />
+
+    <div class="max-w-3xl divide-y divide-(--color-border) border-y border-(--color-border)">
+      {faqs.map((f) => (
+        <details class="group">
+          <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer hover:text-(--color-grafana) transition-colors">
+            <span class="font-medium text-(--color-fg) group-hover:text-(--color-grafana) transition-colors text-[15px]">{f.q}</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" class="text-(--color-fg-muted) flex-shrink-0 transition-transform group-open:rotate-45">
+              <path d="M9 4v10M4 9h10"/>
+            </svg>
+          </summary>
+          <div class="pb-5 -mt-1 text-sm leading-relaxed text-(--color-fg-muted)">
+            {f.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+import SectionLabel from "./SectionLabel.astro";
+
+const steps = [
+  { title: "Install", body: "from the Stream Deck Marketplace (Free or Pro)." },
+  { title: "Connect", body: "by pasting your Grafana URL and a service-account token. Viewer role is enough." },
+  { title: "Assign", body: "a panel or alert to any key. Done." },
+];
+---
+<section class="border-t border-(--color-border)">
+  <div class="mx-auto max-w-5xl px-6 py-20">
+    <SectionLabel label="Setup in 3 steps" />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 relative">
+      {steps.map((s, i) => (
+        <article class="rounded-[var(--radius-card)] border border-(--color-border) bg-(--color-bg-card) p-6">
+          <div class="flex items-center justify-center w-8 h-8 rounded-full bg-(--color-grafana) text-white text-sm font-bold mb-4">
+            {i + 1}
+          </div>
+          <p class="text-sm leading-relaxed text-(--color-fg-muted)">
+            <strong class="text-(--color-fg) font-semibold">{s.title}</strong> {s.body}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

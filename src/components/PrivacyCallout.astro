@@ -1,0 +1,43 @@
+---
+import SectionLabel from "./SectionLabel.astro";
+---
+<section class="border-t border-(--color-border)">
+  <div class="mx-auto max-w-5xl px-6 py-20">
+    <SectionLabel label="Zero telemetry" />
+
+    <div class="rounded-[var(--radius-card)] border border-(--color-border) bg-(--color-bg-card) p-8 md:p-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+        <div>
+          <h3 class="text-2xl font-semibold mb-3 leading-tight">
+            Your Stream Deck talks to your Grafana.
+            <span class="text-(--color-fg-muted)">We don't.</span>
+          </h3>
+          <p class="text-(--color-fg-muted) leading-relaxed mb-4">
+            No accounts. No cloud sync. No analytics SDK. The plugin runs on your machine
+            and only talks to the Grafana URL you give it. We never see your data, your
+            dashboards, or that you installed it.
+          </p>
+          <a href="/privacy" class="text-(--color-grafana) hover:text-(--color-grafana-hover) text-sm font-medium inline-flex items-center gap-1">
+            Read the full privacy stance
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="flex items-center justify-center gap-3" aria-hidden="true">
+          <div class="px-5 py-4 rounded-lg border border-(--color-border-strong) bg-(--color-bg-elevated) text-sm font-semibold text-center min-w-24">
+            Stream<br/>Deck
+          </div>
+          <div class="flex flex-col items-center text-(--color-success) text-xs font-mono">
+            <span>HTTPS</span>
+            <span class="text-base">◄──►</span>
+          </div>
+          <div class="px-5 py-4 rounded-lg border border-(--color-border-strong) bg-(--color-bg-elevated) text-sm font-semibold text-center min-w-24">
+            Your<br/>Grafana
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

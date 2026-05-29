@@ -1,0 +1,13 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+minimumReleaseAgeExclude:
+  - astro@6.4.2
+  - "@astrojs/react"
+  - "@astrojs/tailwind"
+  - "@tailwindcss/vite"
+  - tailwindcss
+  - react
+  - react-dom
+  - "@types/react"
+  - "@types/react-dom"

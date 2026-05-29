@@ -1,0 +1,31 @@
+---
+import SectionLabel from "./SectionLabel.astro";
+
+const audiences = [
+  {
+    title: "SREs on call",
+    desc: "Pin the error budget, the 5xx rate, and the alerts you actually want to look at. Glance, don't tab-hunt.",
+  },
+  {
+    title: "DevOps",
+    desc: "Pipeline duration, queue depth, deploy status — on your desk in hardware, not buried in a dashboard.",
+  },
+  {
+    title: "Platform teams",
+    desc: "Health metrics for the services you operate. One Stream Deck per team, mapped to your golden signals.",
+  },
+];
+---
+<section class="border-t border-(--color-border)">
+  <div class="mx-auto max-w-5xl px-6 py-20">
+    <SectionLabel label="For the people who live in Grafana" />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {audiences.map((a) => (
+        <article class="rounded-[var(--radius-card)] border border-(--color-border) bg-(--color-bg-card) p-6 hover:bg-(--color-bg-card-hover) hover:border-(--color-border-strong) transition-colors">
+          <h3 class="font-semibold mb-2 text-(--color-fg)">{a.title}</h3>
+          <p class="text-sm leading-relaxed text-(--color-fg-muted)">{a.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

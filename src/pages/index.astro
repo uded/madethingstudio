@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Topbar from "../components/Topbar.astro";
+import Hero from "../components/Hero.astro";
+import AudienceCards from "../components/AudienceCards.astro";
+import Capabilities from "../components/Capabilities.astro";
+import TierComparison from "../components/TierComparison.astro";
+import PrivacyCallout from "../components/PrivacyCallout.astro";
+import SetupSteps from "../components/SetupSteps.astro";
+import FAQ from "../components/FAQ.astro";
+import Footer from "../components/Footer.astro";
+---
+<Layout
+  title="Grafana for Stream Deck — Made A Thing Studio"
+  description="Live Grafana panels and alerts on your Stream Deck. Values, sparklines, threshold colors, at a glance. Zero telemetry. Free + Pro."
+>
+  <Topbar />
+  <main>
+    <Hero />
+    <AudienceCards />
+    <Capabilities />
+    <TierComparison />
+    <PrivacyCallout />
+    <SetupSteps />
+    <FAQ />
+  </main>
+  <Footer />
+</Layout>
