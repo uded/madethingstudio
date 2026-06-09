@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <defs>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.12"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+  <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
+  <rect x="14" y="14" width="152" height="152" rx="34" fill="url(#sheen)"/>
+  <text x="90" y="80" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
+  <text x="90" y="124" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+</svg>
