@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Made A Thing Studio — final marketing portfolio</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1920px;
+    background: #0a0b0e; color: #fff;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 80px 80px 100px; box-sizing: border-box;
+  }
+  h1 { font-size: 48px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .lead { font-size: 19px; color: rgba(255,255,255,0.55); margin: 0 0 56px; max-width: 1100px; line-height: 1.45; }
+  h2 {
+    font-size: 14px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); margin: 0 0 26px;
+    padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  section { margin-bottom: 64px; }
+  .row { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+  .card {
+    background: #15161a; border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px; padding: 24px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .card .frame {
+    display: flex; align-items: center; justify-content: center;
+    background: #050608; border-radius: 10px; padding: 18px;
+  }
+  .card .label { margin-top: 14px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); }
+  .card .sub { font-size: 11px; color: rgba(255,255,255,0.40); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+  .marquee-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .marquee {
+    background: #15161a; border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px; overflow: hidden;
+  }
+  .marquee img { width: 100%; height: auto; display: block; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .marquee .meta { padding: 18px 22px; }
+  .marquee .meta .name { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+  .marquee .meta .desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.45; }
+  .og { background: #15161a; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; max-width: 800px; }
+  .og img { width: 100%; height: auto; display: block; }
+  .og .meta { padding: 18px 22px; }
+  .og .meta .name { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+  .og .meta .desc { font-size: 13px; color: rgba(255,255,255,0.55); }
+  .topbar-demo {
+    background: #15161a; border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px; padding: 22px 28px; display: flex; align-items: center; gap: 12px;
+  }
+  .topbar-demo .text { font-size: 18px; font-weight: 600; color: #fff; }
+  .topbar-demo .text .studio { color: rgba(255,255,255,0.55); font-weight: 400; margin-left: 4px; }
+</style>
+</head>
+<body>
+<h1>Made A Thing Studio</h1>
+<p class="lead">Marketing portfolio for the Grafana for Stream Deck launch. Every asset below is committed to the madethingstudio repo and live on CF Pages.</p>
+
+<section>
+  <h2>Brand · 3 logo variants</h2>
+  <div class="row">
+    <div class="card">
+      <div class="frame">
+        <svg width="220" height="220" viewBox="0 0 180 180">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff" stop-opacity="0.12"/>
+            <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+            <stop offset="1" stop-color="#000" stop-opacity="0.18"/>
+          </linearGradient></defs>
+          <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
+          <rect x="14" y="14" width="152" height="152" rx="34" fill="url(#g1)"/>
+          <text x="90" y="56" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
+          <path d="M 64 95 L 82 113 L 118 73" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <text x="90" y="148" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+        </svg>
+      </div>
+      <div class="label">Full logo</div>
+      <div class="sub">logo.svg / logo-512.png · 64px+</div>
+    </div>
+    <div class="card">
+      <div class="frame">
+        <svg width="220" height="220" viewBox="0 0 180 180">
+          <rect x="14" y="14" width="152" height="152" rx="38" fill="#f46800"/>
+          <path d="M 50 90 L 78 118 L 136 60" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="label">Compact mark</div>
+      <div class="sub">favicon.svg · &lt;64px</div>
+    </div>
+    <div class="card">
+      <div class="frame">
+        <svg width="220" height="220" viewBox="0 0 180 180">
+          <rect x="14" y="14" width="152" height="152" rx="34" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-width="3"/>
+          <text x="90" y="56" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
+          <path d="M 64 95 L 82 113 L 118 73" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <text x="90" y="148" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+        </svg>
+      </div>
+      <div class="label">Mono outline</div>
+      <div class="sub">logo-mono.svg · color-stripped</div>
+    </div>
+  </div>
+  <div style="margin-top: 28px;" class="topbar-demo">
+    <svg width="32" height="32" viewBox="0 0 180 180">
+      <rect x="14" y="14" width="152" height="152" rx="38" fill="#f46800"/>
+      <path d="M 50 90 L 78 118 L 136 60" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <div class="text">Made A Thing<span class="studio">Studio</span></div>
+    <div style="flex: 1;"></div>
+    <div style="color: rgba(255,255,255,0.40); font-size: 13px;">← website top bar (live at madeathing.studio)</div>
+  </div>
+</section>
+
+<section>
+  <h2>Social · 1 OG card</h2>
+  <div class="og">
+    <img src="/public/assets/og-image.png" alt="" />
+    <div class="meta">
+      <div class="name">og-image.png · 1200×630</div>
+      <div class="desc">Twitter, LinkedIn, Slack, Mastodon, Discord — all show this when madeathing.studio is shared.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Marketplace · 7 marquees at 1920×1080</h2>
+  <div class="marquee-grid">
+    <div class="marquee"><img src="/public/assets/marketing/option-1.png" alt="" /><div class="meta"><div class="name">Option 1 · Competitor-style hero</div><div class="desc">Partial deck illustration with 10 keys, dark navy gradient.</div></div></div>
+    <div class="marquee"><img src="/public/assets/marketing/option-2.png" alt="" /><div class="meta"><div class="name">Option 2 · Threshold progression</div><div class="desc">Three keys at green / amber / red. "Your panel's color, on the key."</div></div></div>
+    <div class="marquee"><img src="/public/assets/marketing/option-3.png" alt="" /><div class="meta"><div class="name">Option 3 · Typography hero</div><div class="desc">Big copy left, 15-key deck right. Feature bullets + tier badges.</div></div></div>
+    <div class="marquee"><img src="/public/assets/marketing/option-4.png" alt="" /><div class="meta"><div class="name">Option 4 · 3 display styles</div><div class="desc">Stat / Gauge / Combined side-by-side comparison.</div></div></div>
+    <div class="marquee"><img src="/public/assets/marketing/option-5.png" alt="" /><div class="meta"><div class="name">Option 5 · Quick Setup</div><div class="desc">Big headline + mock Property Inspector. Sells "zero setup."</div></div></div>
+    <div class="marquee"><img src="/public/assets/marketing/option-6.png" alt="" /><div class="meta"><div class="name">Option 6 · Pro features</div><div class="desc">"Bend Every Key" + Pro PI mockup. Differentiates Pro from Free.</div></div></div>
+    <div class="marquee"><img src="/public/assets/marketing/option-7.png" alt="" /><div class="meta"><div class="name">Option 7 · Alerts you can't miss</div><div class="desc">Four alert states (normal, firing, count, pending) with captions.</div></div></div>
+  </div>
+</section>
+
+</body>
+</html>
