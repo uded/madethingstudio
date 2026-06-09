@@ -1,1 +1,16 @@
-<svg height="144" viewBox="0 0 144 144" width="144" xmlns="http://www.w3.org/2000/svg"><rect fill="#b62b3d" height="144" rx="12" width="144"/><g font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle"><text fill="#f8c5cd" font-size="10" font-weight="500" letter-spacing=".06em" x="72" y="22">5xx ERROR RATE</text><text fill="#fff" font-size="34" font-weight="700" x="72" y="78">FIRING</text><text fill="#f8c5cd" font-size="12" font-weight="500" x="72" y="108">since 11:47</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" width="144" height="144">
+  <defs>
+    <radialGradient id="bg-f" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#d63549"/>
+      <stop offset="100%" stop-color="#6b0f1e"/>
+    </radialGradient>
+  </defs>
+  <rect width="144" height="144" rx="15" fill="url(#bg-f)"/>
+  <rect x="0.5" y="0.5" width="143" height="28" rx="15" fill="rgba(255,255,255,0.05)" stroke="none"/>
+  <rect x="0.5" y="0.5" width="143" height="1" rx="0.5" fill="rgba(255,255,255,0.08)"/>
+  <text x="72" y="17" text-anchor="middle" fill="#f8c5cd" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="10" font-weight="600" letter-spacing="0.09em">5xx ERROR RATE</text>
+  <rect x="18" y="56" width="108" height="38" rx="6" fill="rgba(0,0,0,0.25)"/>
+  <text x="72" y="82" text-anchor="middle" fill="#fff" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="28" font-weight="700" letter-spacing="0.02em">FIRING</text>
+  <rect x="26" y="106" width="92" height="22" rx="5" fill="rgba(0,0,0,0.2)"/>
+  <text x="72" y="121" text-anchor="middle" fill="#f8c5cd" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="10" font-weight="500" letter-spacing="0.05em">since 11:47</text>
+</svg>
