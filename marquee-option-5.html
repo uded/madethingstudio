@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Option 5 — Setup feature shot (#10 style)</title>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  body {
+    width: 1920px; height: 1080px;
+    background:
+      radial-gradient(900px 600px at 80% 50%, rgba(140,90,200,0.20), transparent 60%),
+      linear-gradient(180deg, #2c1f5a 0%, #1c1340 100%);
+    color: #fff;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .scene {
+    width: 100%; height: 100%;
+    display: grid; grid-template-columns: 1fr 1.1fr; align-items: center;
+    padding: 0 100px;
+    box-sizing: border-box; position: relative;
+    column-gap: 80px;
+  }
+
+  /* Left: copy */
+  .copy h1 {
+    margin: 0 0 50px; font-size: 116px; font-weight: 800; letter-spacing: -0.025em; line-height: 0.95;
+  }
+  .copy .bullets { padding: 0; list-style: none; margin: 0; }
+  .copy .bullets li {
+    font-size: 30px; font-weight: 500; margin-bottom: 28px; color: #fff;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .copy .bullets li::before {
+    content: ""; width: 18px; height: 18px; border-radius: 50%;
+    background: #f46800; margin-top: 12px; flex-shrink: 0;
+  }
+
+  /* Right: PI window mockup */
+  .pi {
+    width: 760px; max-height: 920px;
+    background: #2a2a2e; border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+    overflow: hidden;
+    font-size: 13px;
+  }
+  .pi-titlebar {
+    display: flex; align-items: center; gap: 8px; padding: 14px 18px;
+    background: #1e1e22; border-bottom: 1px solid rgba(0,0,0,0.4);
+    font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; font-weight: 500;
+  }
+  .pi-dots { display: flex; gap: 6px; }
+  .pi-dots span { width: 11px; height: 11px; border-radius: 50%; }
+  .pi-dots span:nth-child(1) { background: #ff5f57; }
+  .pi-dots span:nth-child(2) { background: #ffbd2e; }
+  .pi-dots span:nth-child(3) { background: #28c840; }
+  .pi-title { margin-left: 12px; font-weight: 600; color: rgba(255,255,255,0.85); }
+
+  .pi-body { padding: 20px 22px; }
+  .pi-section { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); letter-spacing: 0.02em; margin: 0 0 14px; }
+  .pi-row {
+    display: grid; grid-template-columns: 110px 1fr; gap: 12px;
+    align-items: center; margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .pi-row label { color: rgba(255,255,255,0.55); text-align: right; }
+  .pi-input, .pi-select {
+    background: #1c1c1f; border: 1px solid rgba(255,255,255,0.10);
+    color: rgba(255,255,255,0.85); padding: 8px 11px; border-radius: 4px;
+    font-size: 14px;
+  }
+  .pi-select::after { content: " ▾"; color: rgba(255,255,255,0.4); }
+  .pi-button {
+    background: linear-gradient(180deg, #4a4a52, #38383e);
+    border: 1px solid rgba(255,255,255,0.10);
+    color: #fff; padding: 10px 16px; border-radius: 6px; font-weight: 500;
+    cursor: pointer; font-size: 14px;
+  }
+  .pi-status {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-left: 14px; color: #73bf69; font-weight: 500;
+  }
+  .pi-status .dot { width: 9px; height: 9px; border-radius: 50%; background: #73bf69; box-shadow: 0 0 8px rgba(115,191,105,0.6); }
+  .pi-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 22px 0; }
+
+  /* Preview key inside PI */
+  .preview-row {
+    display: flex; align-items: center; gap: 16px; margin-top: 10px;
+  }
+  .preview-key {
+    width: 90px; height: 90px; border-radius: 12px; background: #050608;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), inset 0 2px 4px rgba(0,0,0,0.5);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .preview-key img { width: 100%; height: 100%; display: block; }
+
+  /* Studio anchor */
+  .studio {
+    position: absolute; bottom: 28px; left: 0; right: 0; text-align: center;
+    font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.10em;
+  }
+</style>
+</head>
+<body>
+<div class="scene">
+
+  <div class="copy">
+    <h1>Quick<br/>Setup</h1>
+    <ul class="bullets">
+      <li>Paste your Grafana URL and a token</li>
+      <li>Browse dashboards and panels in-line</li>
+      <li>Drag, drop, done — no config files</li>
+    </ul>
+  </div>
+
+  <div class="pi">
+    <div class="pi-titlebar">
+      <div class="pi-dots"><span></span><span></span><span></span></div>
+      <div class="pi-title">Grafana Panel</div>
+    </div>
+    <div class="pi-body">
+      <h3 class="pi-section">Grafana Instance</h3>
+      <div class="pi-row"><label>Instance</label><div class="pi-select">Production — grafana.example.com</div></div>
+      <div class="pi-row"><label>Appearance</label><div class="pi-select">Dark</div></div>
+      <div class="pi-row"><label>Refresh Rate</label><div class="pi-select">30 seconds</div></div>
+      <div class="pi-row"><label></label>
+        <div>
+          <button class="pi-button">Test Connection</button>
+          <span class="pi-status"><span class="dot"></span>Connected</span>
+        </div>
+      </div>
+
+      <div class="pi-divider"></div>
+
+      <h3 class="pi-section">Dashboards</h3>
+      <div class="pi-row"><label>Search</label><div class="pi-input">cluster_</div></div>
+      <div class="pi-row"><label>Dashboard</label><div class="pi-select">Cluster · Node Metrics</div></div>
+      <div class="pi-row"><label>Panel</label><div class="pi-select">CPU Busy (stat)</div></div>
+      <div class="pi-row"><label>Series</label><div class="pi-select">cpu_busy{cluster="prod"}</div></div>
+
+      <div class="pi-divider"></div>
+
+      <h3 class="pi-section">Live Preview</h3>
+      <div class="preview-row">
+        <div class="preview-key"><img src="/public/assets/hero-key.svg" alt="" /></div>
+        <div style="color: rgba(255,255,255,0.55); font-size: 13px;">
+          Renders as the key would appear on hardware.<br/>
+          Updates every refresh interval.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="studio">MADE A THING STUDIO · GRAFANA FOR STREAM DECK</div>
+
+</div>
+</body>
+</html>

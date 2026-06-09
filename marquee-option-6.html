@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Option 6 — Pro features (#11 style)</title>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  body {
+    width: 1920px; height: 1080px;
+    background:
+      radial-gradient(900px 600px at 80% 50%, rgba(255,152,48,0.18), transparent 60%),
+      linear-gradient(180deg, #2c1f5a 0%, #1c1340 100%);
+    color: #fff;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .scene {
+    width: 100%; height: 100%;
+    display: grid; grid-template-columns: 1fr 1.1fr; align-items: center;
+    padding: 0 100px;
+    box-sizing: border-box; position: relative;
+    column-gap: 80px;
+  }
+  .copy h1 {
+    margin: 0 0 50px; font-size: 110px; font-weight: 800; letter-spacing: -0.025em; line-height: 0.95;
+  }
+  .copy h1 .pro { color: #ff9830; }
+  .copy .bullets { padding: 0; list-style: none; margin: 0; }
+  .copy .bullets li {
+    font-size: 28px; font-weight: 500; margin-bottom: 26px; color: #fff;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .copy .bullets li::before {
+    content: ""; width: 18px; height: 18px; border-radius: 50%;
+    background: #ff9830; margin-top: 10px; flex-shrink: 0;
+  }
+
+  /* PI mockup */
+  .pi {
+    width: 760px; max-height: 920px;
+    background: #2a2a2e; border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+    overflow: hidden;
+    font-size: 13px;
+  }
+  .pi-titlebar {
+    display: flex; align-items: center; gap: 8px; padding: 14px 18px;
+    background: #1e1e22; border-bottom: 1px solid rgba(0,0,0,0.4);
+    font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; font-weight: 500;
+  }
+  .pi-dots { display: flex; gap: 6px; }
+  .pi-dots span { width: 11px; height: 11px; border-radius: 50%; }
+  .pi-dots span:nth-child(1) { background: #ff5f57; }
+  .pi-dots span:nth-child(2) { background: #ffbd2e; }
+  .pi-dots span:nth-child(3) { background: #28c840; }
+  .pi-title { margin-left: 12px; font-weight: 600; color: rgba(255,255,255,0.85); }
+  .pi-pro-badge {
+    margin-left: auto;
+    background: linear-gradient(135deg, #ff9830, #f46800);
+    color: #1a1428; font-weight: 700; padding: 3px 10px; border-radius: 4px;
+    font-size: 11px; letter-spacing: 0.08em;
+  }
+
+  .pi-body { padding: 22px 22px; }
+  .pi-section { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); letter-spacing: 0.02em; margin: 0 0 14px; display: flex; align-items: center; gap: 8px; }
+  .pi-section .lock {
+    width: 14px; height: 14px; background: rgba(255,152,48,0.22); border: 1px solid #ff9830;
+    border-radius: 3px; font-size: 9px; color: #ff9830; display: flex; align-items: center; justify-content: center; font-weight: 800;
+  }
+  .pi-row {
+    display: grid; grid-template-columns: 130px 1fr; gap: 12px;
+    align-items: center; margin-bottom: 11px;
+    font-size: 14px;
+  }
+  .pi-row label { color: rgba(255,255,255,0.55); text-align: right; }
+  .pi-input, .pi-select {
+    background: #1c1c1f; border: 1px solid rgba(255,255,255,0.10);
+    color: rgba(255,255,255,0.85); padding: 8px 11px; border-radius: 4px;
+    font-size: 14px;
+  }
+  .pi-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 18px 0; }
+  .pi-toggle {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.85);
+  }
+  .pi-toggle-switch {
+    width: 32px; height: 18px; background: #ff9830; border-radius: 999px;
+    position: relative;
+  }
+  .pi-toggle-switch::after {
+    content: ""; position: absolute; right: 2px; top: 2px;
+    width: 14px; height: 14px; background: #fff; border-radius: 50%;
+  }
+
+  /* Preview key inside PI */
+  .preview-row {
+    display: flex; align-items: center; gap: 14px; margin-top: 10px;
+  }
+  .preview-key {
+    width: 90px; height: 90px; border-radius: 12px; background: #050608;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), inset 0 2px 4px rgba(0,0,0,0.5);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .preview-key img { width: 100%; height: 100%; display: block; }
+
+  .studio {
+    position: absolute; bottom: 28px; left: 0; right: 0; text-align: center;
+    font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.10em;
+  }
+</style>
+</head>
+<body>
+<div class="scene">
+
+  <div class="copy">
+    <h1>Bend Every<br/>Key to Your<br/><span class="pro">Will</span></h1>
+    <ul class="bullets">
+      <li>Custom labels · font sizes · refresh rates</li>
+      <li>Gauge view: radial 270° + arc 180°</li>
+      <li>Trend arrows · webhook on threshold breach</li>
+      <li>Custom HTTP headers · multi-instance per key</li>
+    </ul>
+  </div>
+
+  <div class="pi">
+    <div class="pi-titlebar">
+      <div class="pi-dots"><span></span><span></span><span></span></div>
+      <div class="pi-title">Grafana Panel</div>
+      <div class="pi-pro-badge">PRO</div>
+    </div>
+    <div class="pi-body">
+      <h3 class="pi-section"><span class="lock">★</span>Per-Key Customization</h3>
+      <div class="pi-row"><label>Style</label><div class="pi-select">Gauge — Radial (270°)</div></div>
+      <div class="pi-row"><label>Gauge Range</label><div class="pi-select">0 — 100</div></div>
+      <div class="pi-row"><label>Custom Label</label><div class="pi-input">API p99</div></div>
+      <div class="pi-row"><label>Title Size</label><div class="pi-input">24</div></div>
+      <div class="pi-row"><label>Value Size</label><div class="pi-input">48</div></div>
+      <div class="pi-row"><label>Refresh Rate</label><div class="pi-select">15 seconds</div></div>
+
+      <div class="pi-divider"></div>
+
+      <h3 class="pi-section"><span class="lock">★</span>Pro Behaviors</h3>
+      <div class="pi-row"><label>Show Trend</label><div class="pi-toggle"><div class="pi-toggle-switch"></div></div></div>
+      <div class="pi-row"><label>Breach Webhook</label><div class="pi-input">https://hooks.example.com/grafana</div></div>
+      <div class="pi-row"><label>Time Range</label><div class="pi-select">Last 15 minutes</div></div>
+
+      <div class="pi-divider"></div>
+
+      <h3 class="pi-section">Live Preview</h3>
+      <div class="preview-row">
+        <div class="preview-key"><img src="/public/assets/tile-gauge.svg" alt="" /></div>
+        <div style="color: rgba(255,255,255,0.55); font-size: 13px;">
+          Gauge view · custom label · 270° arc.<br/>
+          Threshold zones painted on the track.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="studio">MADE A THING STUDIO · GRAFANA FOR STREAM DECK</div>
+
+</div>
+</body>
+</html>

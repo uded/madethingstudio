@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>OG image 1200×630</title>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  body {
+    width: 1200px; height: 630px;
+    background:
+      radial-gradient(800px 500px at 65% 50%, rgba(244,104,0,0.25), transparent 65%),
+      linear-gradient(180deg, #1a1428 0%, #0f0e1a 100%);
+    color: #fff;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .scene {
+    width: 100%; height: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 0 70px;
+    box-sizing: border-box;
+  }
+  .copy h1 {
+    font-size: 60px; font-weight: 700; letter-spacing: -0.022em; line-height: 1.05; margin: 0;
+  }
+  .copy h1 .accent { color: #f46800; }
+  .copy .desc {
+    margin-top: 22px; font-size: 18px; color: rgba(255,255,255,0.70); line-height: 1.45; max-width: 460px;
+  }
+  .copy .byline {
+    margin-top: 28px; font-size: 14px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em;
+    text-transform: uppercase; font-weight: 600;
+  }
+  .copy .byline .dot { color: rgba(255,255,255,0.20); margin: 0 10px; }
+  .deck-wrap { display: flex; justify-content: center; }
+  .deck {
+    width: 470px; padding: 18px 22px 28px;
+    background: linear-gradient(180deg, #1b1c22 0%, #0e0f14 100%);
+    border-radius: 22px; border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .deck-label { text-align: center; margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.18em; color: rgba(255,255,255,0.50); }
+  .elgato-dot { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.50); position: relative; }
+  .elgato-dot::after { content: ""; position: absolute; inset: 2px; border-radius: 50%; background: rgba(255,255,255,0.50); }
+  .grid {
+    display: grid; grid-template-columns: repeat(5, 76px); grid-template-rows: repeat(2, 76px);
+    gap: 10px; justify-content: center;
+  }
+  .key {
+    border-radius: 11px; background: #050608;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), inset 0 2px 4px rgba(0,0,0,0.7);
+    overflow: hidden; position: relative;
+  }
+  .key img { width: 100%; height: 100%; display: block; }
+  .key::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 28%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent); }
+</style>
+</head>
+<body>
+<div class="scene">
+  <div class="copy">
+    <h1>Grafana on your <span class="accent">Stream Deck</span>.</h1>
+    <p class="desc">Live dashboard panels and alert states on every key. Glanceable, threshold-aware, zero telemetry.</p>
+    <div class="byline">Made A Thing Studio <span class="dot">·</span> Free + Pro</div>
+  </div>
+  <div class="deck-wrap">
+    <div class="deck">
+      <div class="deck-label"><div class="elgato-dot"></div>STREAM DECK</div>
+      <div class="grid">
+        <div class="key"><img src="/public/assets/hero-key.svg"      alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-panel.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-sparkline.svg" alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-gauge.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-alerts.svg"   alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-panel.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-gauge.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/hero-key.svg"      alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-fire.svg"     alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-sparkline.svg" alt="" /></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

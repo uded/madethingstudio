@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Option 7 — Alert states</title>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  body {
+    width: 1920px; height: 1080px;
+    background: #0d0e12; color: #fff;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .scene {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 80px 100px;
+    box-sizing: border-box; position: relative;
+  }
+  h1 {
+    font-size: 80px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.0;
+    margin: 0 0 20px; text-align: center;
+  }
+  .subtitle {
+    font-size: 28px; color: rgba(255,255,255,0.60); margin-bottom: 80px; text-align: center;
+    max-width: 1100px;
+  }
+
+  .keys-row {
+    display: grid;
+    grid-template-columns: repeat(4, 240px);
+    gap: 100px;
+    margin-bottom: 60px;
+  }
+  .key-tile { text-align: center; }
+  .key {
+    width: 240px; height: 240px;
+    border-radius: 26px;
+    background: #050608;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.06),
+      inset 0 3px 8px rgba(0,0,0,0.7),
+      0 14px 36px rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto 30px;
+  }
+  .key img { width: 100%; height: 100%; display: block; }
+  .key::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 28%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent);
+    pointer-events: none;
+  }
+
+  .state-name {
+    font-size: 24px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px;
+  }
+  .state-desc {
+    font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.45; max-width: 200px; margin: 0 auto;
+  }
+  .normal { color: #73bf69; }
+  .single-firing { color: #f2495c; }
+  .count { color: #ff9830; }
+  .pending { color: #ecbb13; }
+
+  .narrative {
+    margin-top: 40px;
+    max-width: 1000px;
+    text-align: center;
+    font-size: 22px; line-height: 1.55;
+    color: rgba(255,255,255,0.70);
+  }
+  .narrative em { font-style: normal; font-weight: 600; color: #f46800; }
+
+  .studio {
+    position: absolute; bottom: 32px; left: 0; right: 0;
+    text-align: center;
+    font-size: 14px; color: rgba(255,255,255,0.30);
+    letter-spacing: 0.10em;
+  }
+</style>
+</head>
+<body>
+<div class="scene">
+
+  <h1>Alerts you can't miss</h1>
+  <div class="subtitle">
+    Single-rule keys, active-count widgets, pending styles — every alert state visible from across the room.
+  </div>
+
+  <div class="keys-row">
+    <div class="key-tile">
+      <div class="key"><img src="/public/assets/tile-panel.svg" alt="" /></div>
+      <div class="state-name normal">Normal</div>
+      <div class="state-desc">Rule healthy. Key inherits its panel threshold color.</div>
+    </div>
+    <div class="key-tile">
+      <div class="key"><img src="/public/assets/tile-fire.svg" alt="" /></div>
+      <div class="state-name single-firing">Single firing</div>
+      <div class="state-desc">One alert rule pinned to one key. Red the moment it fires.</div>
+    </div>
+    <div class="key-tile">
+      <div class="key"><img src="/public/assets/tile-alerts.svg" alt="" /></div>
+      <div class="state-name count">Active count</div>
+      <div class="state-desc">Roll up all firing rules into one number. Threshold-colored, badge for pending.</div>
+    </div>
+    <div class="key-tile">
+      <div class="key"><img src="/public/assets/tile-fire.svg" alt="" /></div>
+      <div class="state-name pending">Pending</div>
+      <div class="state-desc">Bottom-right badge, side label, amber ring, or hidden — your call.</div>
+    </div>
+  </div>
+
+  <div class="narrative">
+    No browser tab to keep open. No surprise page mid-meeting.
+    Your deck <em>turns red</em> the moment one of your rules transitions firing.
+  </div>
+
+  <div class="studio">MADE A THING STUDIO · GRAFANA FOR STREAM DECK</div>
+
+</div>
+</body>
+</html>

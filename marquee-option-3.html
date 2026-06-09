@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Option 3 — Typography hero (#15 style)</title>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  body {
+    width: 1920px; height: 1080px;
+    background: #08090c; color: #fff;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .scene {
+    width: 100%; height: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 0 100px;
+    box-sizing: border-box;
+    position: relative;
+  }
+  /* Subtle radial accent in upper-right */
+  .scene::before {
+    content: ""; position: absolute; right: -200px; top: -100px;
+    width: 900px; height: 900px;
+    background: radial-gradient(circle, rgba(244,104,0,0.10), transparent 60%);
+    pointer-events: none;
+  }
+
+  /* ── Left: typography ───────────────────────────────────────────── */
+  .copy h1 {
+    margin: 0; font-size: 96px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.0;
+  }
+  .copy h1 .for {
+    font-size: 32px; font-weight: 500; color: rgba(255,255,255,0.55); letter-spacing: 0.04em;
+    display: block; margin-top: 14px;
+  }
+  .copy h1 .accent { color: #f46800; }
+  .copy .desc {
+    margin-top: 38px; font-size: 22px; line-height: 1.5; color: rgba(255,255,255,0.70);
+    max-width: 620px;
+  }
+  .copy .bullets {
+    margin-top: 36px; padding: 0; list-style: none;
+    font-size: 18px; color: rgba(255,255,255,0.80); line-height: 1.7;
+  }
+  .copy .bullets li { display: flex; gap: 12px; align-items: flex-start; }
+  .copy .bullets li::before {
+    content: "→"; color: #73bf69; font-weight: 700; font-size: 20px;
+  }
+  .copy .badges {
+    margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .copy .badge {
+    padding: 8px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75); font-size: 15px; font-weight: 500;
+  }
+
+  /* ── Right: deck card ───────────────────────────────────────────── */
+  .deck-wrap {
+    display: flex; justify-content: center; align-items: center;
+  }
+  .deck {
+    width: 720px; padding: 28px 32px 38px;
+    background: linear-gradient(180deg, #1b1c22 0%, #0e0f14 100%);
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.6), inset 0 2px 0 rgba(255,255,255,0.06);
+    position: relative;
+  }
+  .deck-label {
+    text-align: center; margin-bottom: 22px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-size: 18px; font-weight: 600; letter-spacing: 0.18em; color: rgba(255,255,255,0.50);
+  }
+  .elgato-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.50); position: relative; }
+  .elgato-dot::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: rgba(255,255,255,0.50); }
+  .grid {
+    display: grid; grid-template-columns: repeat(5, 110px); grid-template-rows: repeat(3, 110px);
+    gap: 14px; justify-content: center;
+  }
+  .key {
+    border-radius: 14px; background: #050608;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.05),
+      inset 0 2px 5px rgba(0,0,0,0.7);
+    overflow: hidden; position: relative;
+  }
+  .key img { width: 100%; height: 100%; display: block; }
+  .key::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 28%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent);
+  }
+
+  /* Studio anchor */
+  .studio {
+    position: absolute; bottom: 26px; left: 0; right: 0; text-align: center;
+    font-size: 13px; color: rgba(255,255,255,0.25); letter-spacing: 0.10em;
+  }
+</style>
+</head>
+<body>
+<div class="scene">
+
+  <!-- ── Left ─────────────────────────────────────────────────────── -->
+  <div class="copy">
+    <h1>
+      Grafana<br/>
+      on your<br/>
+      <span class="accent">Stream Deck</span>
+      <span class="for">for Stream Deck · V1</span>
+    </h1>
+    <p class="desc">
+      Live dashboard panels and alert states on your keys. Values, sparklines,
+      threshold-aware colors — at a glance, without a browser tab.
+    </p>
+    <ul class="bullets">
+      <li>Panel values · sparklines · gauge views · trend arrows</li>
+      <li>Threshold-aware coloring inherited from your Grafana panel</li>
+      <li>Alert rule states + active firing count · webhook on breach</li>
+    </ul>
+    <div class="badges">
+      <span class="badge">macOS · Windows</span>
+      <span class="badge">Stream Deck 6.7+</span>
+      <span class="badge">Free + Pro</span>
+      <span class="badge">Zero telemetry</span>
+    </div>
+  </div>
+
+  <!-- ── Right ────────────────────────────────────────────────────── -->
+  <div class="deck-wrap">
+    <div class="deck">
+      <div class="deck-label"><div class="elgato-dot"></div>STREAM DECK</div>
+      <div class="grid">
+        <div class="key"><img src="/public/assets/hero-key.svg"      alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-panel.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-sparkline.svg" alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-gauge.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-alerts.svg"   alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-panel.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-gauge.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/hero-key.svg"      alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-fire.svg"     alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-sparkline.svg" alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-alerts.svg"   alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-sparkline.svg" alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-panel.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-gauge.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/hero-key.svg"      alt="" /></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="studio">MADEATHING.STUDIO</div>
+</div>
+</body>
+</html>

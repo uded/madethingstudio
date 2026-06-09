@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Option 2 — Threshold progression</title>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; }
+  body {
+    width: 1920px; height: 1080px;
+    background: #0d0e12;
+    color: #fff;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .scene {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 80px;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  h1 {
+    font-size: 76px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05;
+    margin: 0 0 22px;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 28px; font-weight: 400;
+    color: rgba(255,255,255,0.60);
+    margin-bottom: 100px;
+    text-align: center;
+    max-width: 1100px;
+  }
+
+  /* Three-key progression matching Grafana's own threshold defaults:
+     green → yellow → red. No blue: it's not a threshold tier in our
+     color story, only a state indicator for nodata/error. */
+  .keys-row {
+    display: grid;
+    grid-template-columns: repeat(3, 260px);
+    gap: 130px;
+    margin-bottom: 64px;
+  }
+  .key-tile { text-align: center; }
+  .key {
+    width: 260px; height: 260px;
+    border-radius: 28px;
+    background: #050608;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.06),
+      inset 0 3px 8px rgba(0,0,0,0.7),
+      0 16px 40px rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto 32px;
+  }
+  .key img { width: 100%; height: 100%; display: block; }
+  .key::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 28%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent);
+    pointer-events: none;
+  }
+
+  .range {
+    font-size: 15px; font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .severity {
+    font-size: 24px; font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .severity strong { font-weight: 700; }
+  .green  { color: #73bf69; }
+  .yellow { color: #ff9830; }
+  .red    { color: #f2495c; }
+
+  .narrative {
+    margin-top: 40px;
+    max-width: 980px;
+    text-align: center;
+    font-size: 22px; line-height: 1.55;
+    color: rgba(255,255,255,0.70);
+  }
+  .narrative em { font-style: normal; font-weight: 600; color: #f46800; }
+
+  .studio {
+    position: absolute; bottom: 32px; left: 0; right: 0;
+    text-align: center;
+    font-size: 15px; color: rgba(255,255,255,0.30);
+    letter-spacing: 0.10em;
+  }
+</style>
+</head>
+<body>
+<div class="scene">
+
+  <h1>Your panel's color, on the key</h1>
+  <div class="subtitle">
+    Thresholds inherited from your Grafana panel. Green when safe, yellow when it shifts, red when it burns.
+  </div>
+
+  <div class="keys-row">
+    <div class="key-tile">
+      <div class="key"><img src="/public/assets/tile-panel.svg" alt="" /></div>
+      <div class="range">0 – 79%</div>
+      <div class="severity green">Safe <strong>— green</strong></div>
+    </div>
+    <div class="key-tile">
+      <div class="key"><img src="/public/assets/hero-key.svg" alt="" /></div>
+      <div class="range">80 – 94%</div>
+      <div class="severity yellow">Warning <strong>— amber</strong></div>
+    </div>
+    <div class="key-tile">
+      <div class="key"><img src="/public/assets/tile-fire.svg" alt="" /></div>
+      <div class="range">95 – 100%</div>
+      <div class="severity red">Critical <strong>— red</strong></div>
+    </div>
+  </div>
+
+  <div class="narrative">
+    No dashboard tab to keep open. No surprise spike in the middle of a meeting.
+    Your deck <em>shows the color</em> the moment your metric crosses the line.
+  </div>
+
+  <div class="studio">MADE A THING STUDIO · GRAFANA FOR STREAM DECK</div>
+
+</div>
+</body>
+</html>
