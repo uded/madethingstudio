@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
-  <!-- Favicon: simplified mark — orange key with stacked text. At 16px the
-       browser falls back visually to the orange shape (text becomes noise).
-       At 32px and above the wordmark reads through. -->
+  <!-- Favicon / small-size mark: just the orange key + checkmark.
+       At 16-32px the text version is illegible; the check alone is the
+       compact form of the brand. Use this anywhere the rendered size is
+       below ~64px (browser tabs, dock icons, dense grids). -->
   <rect x="14" y="14" width="152" height="152" rx="38" fill="#f46800"/>
-  <text x="90" y="82" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-  <text x="90" y="126" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+  <path d="M 50 90 L 78 118 L 136 60" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 </svg>

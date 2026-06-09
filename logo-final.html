@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Logo final — Key + stacked wordmark</title>
+<title>Logo final v2 — text + check + text / favicon = check only</title>
 <style>
   html, body { margin: 0; padding: 0; }
   body {
@@ -31,7 +31,6 @@
   .card .title { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
   .card .desc { font-size: 14px; color: rgba(255,255,255,0.55); text-align: center; margin-bottom: 24px; max-width: 320px; line-height: 1.4; }
 
-  /* Marketplace profile crop simulation */
   .profile-crop {
     width: 220px; height: 220px;
     border-radius: 50%;
@@ -42,197 +41,145 @@
   }
   .uncropped { width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; background: #050608; border-radius: 14px; }
 
-  .scale-row {
-    display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
-    color: rgba(255,255,255,0.55); font-size: 11px;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    margin-top: 14px;
-  }
-  .scale-row .swatch { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  .scale-row .swatch-mini { width: 32px; height: 32px; }
-  .scale-row .swatch-tiny { width: 16px; height: 16px; }
-
-  .light-bg {
-    background: #f6f4ee !important;
-    border: 1px solid rgba(0,0,0,0.06) !important;
-  }
-
-  /* Header band */
   .header-band {
     background: #16181d; border-radius: 14px; padding: 22px 32px;
     border: 1px solid rgba(255,255,255,0.06);
-    display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
   }
   .header-band .text {
     font-size: 19px; font-weight: 600; letter-spacing: -0.005em; color: #fff;
   }
   .header-band .text .studio { color: rgba(255,255,255,0.55); font-weight: 400; margin-left: 6px; }
-
-  /* favicon row */
-  .favicon-row {
-    background: #1c1d22; border-radius: 8px; padding: 8px 16px; display: inline-flex;
-    align-items: center; gap: 10px; font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 16px;
-  }
 </style>
 </head>
 <body>
 
-<h1>Made A Thing Studio · logo</h1>
-<p class="subtitle">Orange Stream Deck key with "made / a thing" stacked, just like a widget our plugin would render.</p>
+<h1>Made A Thing Studio · logo v2</h1>
+<p class="subtitle">Big sizes: orange key with text "made" + check + "a thing". Small sizes (favicon): just the check.</p>
 
 <div class="row">
 
-  <!-- ── Profile circular crop ───────────────────────────────────── -->
+  <!-- ── Big logo (full) ──────────────────────────────────────────── -->
   <div class="card">
-    <div class="label">Marketplace profile · circular crop</div>
+    <div class="label">Marketplace profile · 220px circular</div>
     <div class="profile-crop">
       <svg width="180" height="180" viewBox="0 0 180 180">
+        <defs><linearGradient id="s1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0.12"/>
+          <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+          <stop offset="1" stop-color="#000" stop-opacity="0.18"/>
+        </linearGradient></defs>
         <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
-        <rect x="14" y="14" width="152" height="152" rx="34" fill="url(#sheen)"/>
-        <defs>
-          <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#fff" stop-opacity="0.12"/>
-            <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
-            <stop offset="1" stop-color="#000" stop-opacity="0.18"/>
-          </linearGradient>
-        </defs>
-        <text x="90" y="80" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-        <text x="90" y="124" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+        <rect x="14" y="14" width="152" height="152" rx="34" fill="url(#s1)"/>
+        <text x="90" y="56" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
+        <path d="M 64 95 L 82 113 L 118 73" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <text x="90" y="148" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
       </svg>
     </div>
-    <div class="title">220px circle crop</div>
-    <div class="desc">How Elgato Maker / Twitter / LinkedIn profile picture will display.</div>
+    <div class="title">Big logo · text + ✓ + text</div>
+    <div class="desc">Marketplace profile, social media avatars, website hero. Anywhere there's room for the full mark.</div>
   </div>
 
-  <!-- ── Uncropped square ─────────────────────────────────────────── -->
   <div class="card">
-    <div class="label">Uncropped key shape</div>
+    <div class="label">Uncropped square</div>
     <div class="uncropped">
       <svg width="180" height="180" viewBox="0 0 180 180">
+        <defs><linearGradient id="s2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0.12"/>
+          <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+          <stop offset="1" stop-color="#000" stop-opacity="0.18"/>
+        </linearGradient></defs>
         <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
-        <rect x="14" y="14" width="152" height="152" rx="34" fill="url(#sheen2)"/>
-        <defs>
-          <linearGradient id="sheen2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#fff" stop-opacity="0.12"/>
-            <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
-            <stop offset="1" stop-color="#000" stop-opacity="0.18"/>
-          </linearGradient>
-        </defs>
-        <text x="90" y="80" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-        <text x="90" y="124" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+        <rect x="14" y="14" width="152" height="152" rx="34" fill="url(#s2)"/>
+        <text x="90" y="56" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
+        <path d="M 64 95 L 82 113 L 118 73" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <text x="90" y="148" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
       </svg>
     </div>
-    <div class="title">Native shape</div>
-    <div class="desc">How the mark looks on the site, in dialogs, anywhere it isn't circle-cropped.</div>
+    <div class="title">Native square</div>
+    <div class="desc">As shown on the site, in plugin headshots, anywhere the circle crop isn't applied.</div>
   </div>
 
-  <!-- ── Scale ────────────────────────────────────────────────────── -->
+  <!-- ── Small (favicon — check only) ─────────────────────────────── -->
   <div class="card">
-    <div class="label">Scale check</div>
-    <div style="display: flex; gap: 26px; align-items: flex-end; margin-top: 16px;">
-      <!-- 128 -->
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <svg width="96" height="96" viewBox="0 0 180 180">
-          <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
-          <text x="90" y="80" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-          <text x="90" y="124" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
-        </svg>
-        <span style="font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em;">96PX</span>
-      </div>
-      <!-- 48 -->
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <svg width="48" height="48" viewBox="0 0 180 180">
-          <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
-          <text x="90" y="80" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-          <text x="90" y="124" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
-        </svg>
-        <span style="font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em;">48PX</span>
-      </div>
-      <!-- 32 -->
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <svg width="32" height="32" viewBox="0 0 180 180">
-          <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
-          <text x="90" y="80" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-          <text x="90" y="124" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
-        </svg>
-        <span style="font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em;">32PX</span>
-      </div>
-      <!-- 16 falls back to a simple orange square (text becomes noise at this size) -->
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <svg width="16" height="16" viewBox="0 0 180 180">
-          <rect x="14" y="14" width="152" height="152" rx="46" fill="#f46800"/>
-        </svg>
-        <span style="font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em;">16PX FALLBACK</span>
-      </div>
+    <div class="label">Small sizes · favicon · check only</div>
+    <div class="uncropped">
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <rect x="14" y="14" width="152" height="152" rx="38" fill="#f46800"/>
+        <path d="M 50 90 L 78 118 L 136 60" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
     </div>
-    <div class="title" style="margin-top: 30px;">Pixel fidelity</div>
-    <div class="desc">Text reads through 32px. Favicon at 16px falls back to the orange key shape only.</div>
+    <div class="title">Compact mark</div>
+    <div class="desc">Browser tab favicon, dock icons, dense grids — anywhere the full text is unreadable.</div>
+  </div>
+
+</div>
+
+<!-- ── Scale check side-by-side ─────────────────────────────────────── -->
+<div class="card" style="margin-bottom: 32px; align-items: flex-start;">
+  <div class="label">Scale check — big logo holds through 64px; below that switches to compact</div>
+
+  <div style="display: flex; gap: 36px; align-items: flex-end; padding: 16px 0;">
+    <!-- 144 -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      <svg width="144" height="144" viewBox="0 0 180 180">
+        <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
+        <text x="90" y="56" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
+        <path d="M 64 95 L 82 113 L 118 73" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <text x="90" y="148" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+      </svg>
+      <span style="font-size: 11px; color: rgba(255,255,255,0.45);">144PX — FULL</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      <svg width="96" height="96" viewBox="0 0 180 180">
+        <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
+        <text x="90" y="56" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
+        <path d="M 64 95 L 82 113 L 118 73" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <text x="90" y="148" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+      </svg>
+      <span style="font-size: 11px; color: rgba(255,255,255,0.45);">96PX — FULL</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      <svg width="64" height="64" viewBox="0 0 180 180">
+        <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
+        <text x="90" y="56" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
+        <path d="M 64 95 L 82 113 L 118 73" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <text x="90" y="148" font-family="ui-sans-serif,system-ui" font-size="24" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+      </svg>
+      <span style="font-size: 11px; color: rgba(255,255,255,0.45);">64PX — STILL FULL</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      <svg width="48" height="48" viewBox="0 0 180 180">
+        <rect x="14" y="14" width="152" height="152" rx="38" fill="#f46800"/>
+        <path d="M 50 90 L 78 118 L 136 60" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span style="font-size: 11px; color: rgba(255,255,255,0.45);">48PX — COMPACT</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      <svg width="32" height="32" viewBox="0 0 180 180">
+        <rect x="14" y="14" width="152" height="152" rx="38" fill="#f46800"/>
+        <path d="M 50 90 L 78 118 L 136 60" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span style="font-size: 11px; color: rgba(255,255,255,0.45);">32PX</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      <svg width="16" height="16" viewBox="0 0 180 180">
+        <rect x="14" y="14" width="152" height="152" rx="38" fill="#f46800"/>
+        <path d="M 50 90 L 78 118 L 136 60" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span style="font-size: 11px; color: rgba(255,255,255,0.45);">16PX — FAVICON</span>
+    </div>
   </div>
 </div>
 
-<!-- ── Header band (how it'll look on the website) ─────────────────────── -->
 <div class="header-band">
   <svg width="32" height="32" viewBox="0 0 180 180">
-    <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
-    <text x="90" y="80" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-    <text x="90" y="124" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
+    <rect x="14" y="14" width="152" height="152" rx="38" fill="#f46800"/>
+    <path d="M 50 90 L 78 118 L 136 60" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </svg>
   <div class="text">Made A Thing<span class="studio">Studio</span></div>
   <div style="flex: 1;"></div>
-  <div style="color: rgba(255,255,255,0.40); font-size: 13px;">← how it'll look in the website top bar</div>
-</div>
-
-<!-- ── On a Light Background ─────────────────────────────────────── -->
-<div class="row">
-  <div class="card light-bg">
-    <div class="label" style="color: rgba(0,0,0,0.55);">On a light background</div>
-    <div style="background: #fff; border-radius: 14px; padding: 32px; display: flex; align-items: center; justify-content: center; width: 100%;">
-      <svg width="180" height="180" viewBox="0 0 180 180">
-        <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
-        <text x="90" y="80" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-        <text x="90" y="124" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
-      </svg>
-    </div>
-    <div class="title" style="color: rgba(0,0,0,0.85); margin-top: 16px;">Light surface</div>
-    <div class="desc" style="color: rgba(0,0,0,0.55);">The orange + white reads strongly on cream/white. No light variant needed.</div>
-  </div>
-
-  <div class="card">
-    <div class="label">Monochrome white (cases that strip color)</div>
-    <div class="uncropped">
-      <svg width="180" height="180" viewBox="0 0 180 180">
-        <rect x="14" y="14" width="152" height="152" rx="34" fill="#fff" fill-opacity="0.10" stroke="#fff" stroke-width="3"/>
-        <text x="90" y="80" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-        <text x="90" y="124" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
-      </svg>
-    </div>
-    <div class="title">Outline + white</div>
-    <div class="desc">For places that strip color (some integrations, sponsor strips, printed materials).</div>
-  </div>
-
-  <div class="card">
-    <div class="label">In context — Stream Deck deck illustration</div>
-    <div style="display: grid; grid-template-columns: repeat(3, 56px); grid-template-rows: repeat(3, 56px); gap: 8px; padding: 24px; background: #1b1c20; border-radius: 18px; margin-top: 10px;">
-      <div style="border-radius: 10px; background: #050608; overflow: hidden;"><img src="/public/assets/hero-key.svg" style="width: 56px; height: 56px; display: block;" /></div>
-      <div style="border-radius: 10px; background: #050608; overflow: hidden;"><img src="/public/assets/tile-panel.svg" style="width: 56px; height: 56px; display: block;" /></div>
-      <div style="border-radius: 10px; background: #050608; overflow: hidden;"><img src="/public/assets/tile-gauge.svg" style="width: 56px; height: 56px; display: block;" /></div>
-      <div style="border-radius: 10px; background: #050608; overflow: hidden;"><img src="/public/assets/tile-sparkline.svg" style="width: 56px; height: 56px; display: block;" /></div>
-      <!-- the logo as a key on the deck — meta -->
-      <div style="border-radius: 10px; overflow: hidden;">
-        <svg width="56" height="56" viewBox="0 0 180 180">
-          <rect x="14" y="14" width="152" height="152" rx="34" fill="#f46800"/>
-          <text x="90" y="80" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">made</text>
-          <text x="90" y="124" font-family="ui-sans-serif, system-ui" font-size="34" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="-0.5">a thing</text>
-        </svg>
-      </div>
-      <div style="border-radius: 10px; background: #050608; overflow: hidden;"><img src="/public/assets/tile-fire.svg" style="width: 56px; height: 56px; display: block;" /></div>
-      <div style="border-radius: 10px; background: #050608; overflow: hidden;"><img src="/public/assets/tile-alerts.svg" style="width: 56px; height: 56px; display: block;" /></div>
-      <div style="border-radius: 10px; background: #050608; overflow: hidden;"><img src="/public/assets/tile-panel.svg" style="width: 56px; height: 56px; display: block;" /></div>
-      <div style="border-radius: 10px; background: #050608; overflow: hidden;"><img src="/public/assets/hero-key.svg" style="width: 56px; height: 56px; display: block;" /></div>
-    </div>
-    <div class="title" style="margin-top: 16px;">Meta — the logo IS a key</div>
-    <div class="desc">Drop the logo onto an actual Stream Deck and it fits right in. Self-referential.</div>
-  </div>
+  <div style="color: rgba(255,255,255,0.40); font-size: 13px;">← website top bar (compact mark next to wordmark)</div>
 </div>
 
 </body>
