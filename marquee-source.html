@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Marquee 1920×1080</title>
+<style>
+  /* Lock the page to exactly 1920×1080 with no scrollbars / no chrome */
+  html, body { margin: 0; padding: 0; background: #0b0c0e; overflow: hidden; }
+  body { width: 1920px; height: 1080px; }
+
+  /* Soft radial halo on the right — same hero gradient as the site */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 50%; right: -200px;
+    width: 900px; height: 900px;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, rgba(244,104,0,0.18), transparent 60%);
+    pointer-events: none;
+  }
+
+  .root {
+    width: 100%; height: 100%;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    color: #e8e6e3;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Left: copy ─────────────────────────────────────────────────────────── */
+  .copy { padding: 0 120px; }
+  .brand {
+    font-size: 22px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #8a8a8e; margin-bottom: 36px;
+  }
+  .brand .accent { color: #e8e6e3; }
+  h1 {
+    margin: 0;
+    font-size: 84px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05;
+    max-width: 720px;
+  }
+  h1 .pop { color: #f46800; }
+  .byline {
+    margin-top: 42px;
+    font-size: 22px; color: #8a8a8e; letter-spacing: 0.01em;
+  }
+  .byline .dot { color: #444; margin: 0 14px; }
+
+  /* ── Right: 3-up tile grid ──────────────────────────────────────────────── */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 240px);
+    grid-template-rows: repeat(2, 240px);
+    gap: 32px;
+    justify-content: center;
+    align-content: center;
+  }
+  .tiles img {
+    width: 240px; height: 240px; display: block;
+    border-radius: 24px;
+    filter: drop-shadow(0 24px 40px rgba(0,0,0,0.45));
+  }
+
+  /* The hero key gets visual prominence: spans 2 cols + 2 rows in the grid */
+  .tiles .hero {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    width: 512px; height: 512px;
+    border-radius: 48px;
+  }
+</style>
+</head>
+<body>
+<div class="root">
+
+  <div class="copy">
+    <div class="brand"><span class="accent">Made A Thing</span> Studio</div>
+    <h1>
+      Grafana alerts and metrics
+      on your <span class="pop">Stream Deck</span>,
+      zero setup required.
+    </h1>
+    <div class="byline">
+      Free + Pro <span class="dot">·</span>
+      macOS + Windows <span class="dot">·</span>
+      Zero telemetry
+    </div>
+  </div>
+
+  <div class="tiles">
+    <img class="hero" src="/public/assets/hero-key.svg" alt="" />
+    <img src="/public/assets/tile-sparkline.svg" alt="" />
+    <img src="/public/assets/tile-fire.svg" alt="" />
+  </div>
+
+</div>
+</body>
+</html>
