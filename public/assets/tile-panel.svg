@@ -1,21 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" width="144" height="144">
-  <defs>
-    <radialGradient id="bg-p" cx="50%" cy="40%" r="65%">
-      <stop offset="0%" stop-color="#4a8345"/>
-      <stop offset="100%" stop-color="#243f22"/>
-    </radialGradient>
-    <linearGradient id="spark-fill-p" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#fff" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <rect width="144" height="144" rx="15" fill="url(#bg-p)"/>
-  <rect x="0.5" y="0.5" width="143" height="28" rx="15" fill="rgba(255,255,255,0.04)" stroke="none"/>
-  <rect x="0.5" y="0.5" width="143" height="1" rx="0.5" fill="rgba(255,255,255,0.08)"/>
-  <text x="72" y="17" text-anchor="middle" fill="#cde0c8" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="10" font-weight="600" letter-spacing="0.09em">REQUESTS/s</text>
-  <text x="72" y="68" text-anchor="middle" fill="#fff" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="44" font-weight="700" letter-spacing="-0.03em">1.2k</text>
-  <path d="M14,122 C19,118 24,116 29,114 C34,112 39,116 44,110 C49,104 54,108 59,112 C64,116 69,104 74,100 C79,96 84,106 89,102 C94,98 99,94 104,96 C109,98 114,94 119,92 C122,91 124,90 126,88" fill="url(#spark-fill-p)" stroke="none"/>
-  <path d="M14,122 C19,118 24,116 29,114 C34,112 39,116 44,110 C49,104 54,108 59,112 C64,116 69,104 74,100 C79,96 84,106 89,102 C94,98 99,94 104,96 C109,98 114,94 119,92 C122,91 124,90 126,88" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="126" cy="88" r="3" fill="#fff"/>
-  <circle cx="126" cy="88" r="5.5" fill="rgba(255,255,255,0.2)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144">
+  <rect width="144" height="144" rx="8" fill="#4b7c44"/>
+  <text x="72" y="24" font-family="sans-serif" font-size="18" fill="#ffffff" fill-opacity="0.8" text-anchor="middle">REQUESTS/s</text>
+  <text x="72" y="62" font-family="sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle">1242</text>
+  
+  <polygon points="8,136 22.22222222222222,112.15384615384616 36.44444444444444,126.46153846153847 50.666666666666664,88.3076923076923 64.88888888888889,102.61538461538461 79.11111111111111,78.76923076923077 93.33333333333333,97.84615384615384 107.55555555555556,83.53846153846155 121.77777777777777,74 136,76.86153846153846 136,136 8,136" fill="#ffffff" fill-opacity="0.2"/>
+  <path d="M8,136 L22.22222222222222,112.15384615384616 L36.44444444444444,126.46153846153847 L50.666666666666664,88.3076923076923 L64.88888888888889,102.61538461538461 L79.11111111111111,78.76923076923077 L93.33333333333333,97.84615384615384 L107.55555555555556,83.53846153846155 L121.77777777777777,74 L136,76.86153846153846" stroke="#ffffff" stroke-width="2" fill="none"/>
 </svg>

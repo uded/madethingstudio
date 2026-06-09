@@ -4,82 +4,99 @@
 <meta charset="utf-8" />
 <title>Marquee 1920×1080</title>
 <style>
-  /* Lock the page to exactly 1920×1080 with no scrollbars / no chrome */
   html, body { margin: 0; padding: 0; background: #0b0c0e; overflow: hidden; }
-  body { width: 1920px; height: 1080px; }
+  body { width: 1920px; height: 1080px; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; color: #e8e6e3; }
 
-  /* Soft radial halo on the right — same hero gradient as the site */
+  /* Atmospheric halos — a warm Grafana-orange behind the deck, plus a cooler tint
+     in the upper-right to add depth without screaming. */
   body::before {
-    content: "";
-    position: fixed;
-    top: 50%; right: -200px;
-    width: 900px; height: 900px;
-    transform: translateY(-50%);
-    background: radial-gradient(circle, rgba(244,104,0,0.18), transparent 60%);
-    pointer-events: none;
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(800px 600px at 78% 60%, rgba(244,104,0,0.20), transparent 55%),
+      radial-gradient(900px 500px at 60% 100%, rgba(244,104,0,0.10), transparent 60%),
+      radial-gradient(700px 400px at 95% 0%, rgba(80,100,150,0.10), transparent 55%);
   }
 
-  .root {
-    width: 100%; height: 100%;
-    display: grid; grid-template-columns: 1fr 1fr;
-    align-items: center;
-    color: #e8e6e3;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
+  .scene { position: relative; width: 100%; height: 100%; display: grid;
+           grid-template-columns: 720px 1fr; align-items: center; gap: 80px; padding: 0 0 0 120px; box-sizing: border-box; }
 
-  /* ── Left: copy ─────────────────────────────────────────────────────────── */
-  .copy { padding: 0 120px; }
+  /* ── Copy ─────────────────────────────────────────────────────────────── */
   .brand {
-    font-size: 22px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-    color: #8a8a8e; margin-bottom: 36px;
+    font-size: 22px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #8a8a8e; margin-bottom: 40px;
   }
   .brand .accent { color: #e8e6e3; }
   h1 {
     margin: 0;
-    font-size: 84px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05;
-    max-width: 720px;
+    font-size: 76px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05;
   }
   h1 .pop { color: #f46800; }
   .byline {
-    margin-top: 42px;
+    margin-top: 44px;
     font-size: 22px; color: #8a8a8e; letter-spacing: 0.01em;
   }
   .byline .dot { color: #444; margin: 0 14px; }
 
-  /* ── Right: 3-up tile grid ──────────────────────────────────────────────── */
-  .tiles {
+  /* ── Device — Stream Deck MK.2 5×3 illustration ───────────────────────── */
+  /*  Bezel is a rounded rect with a soft inner shadow (LCD recess) and
+      an upward highlight on the top edge for material feel. The whole
+      assembly is tilted ~6° on Y for a perspective that reads as
+      "product photo" without being aggressive. */
+  .deck-wrap {
+    perspective: 1800px;
+    perspective-origin: 50% 60%;
+    transform: translateY(-40px);
+  }
+  .deck {
+    width: 800px; padding: 32px;
+    background: linear-gradient(180deg, #1f2024 0%, #15161a 100%);
+    border-radius: 28px;
+    box-shadow:
+      0 60px 100px -20px rgba(0,0,0,0.65),
+      0 30px 50px -10px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.06),
+      inset 0 -2px 0 rgba(0,0,0,0.4);
+    transform: rotateY(-8deg) rotateX(4deg);
+    transform-style: preserve-3d;
+  }
+  .grid {
     display: grid;
-    grid-template-columns: repeat(3, 240px);
-    grid-template-rows: repeat(2, 240px);
-    gap: 32px;
-    justify-content: center;
-    align-content: center;
+    grid-template-columns: repeat(5, 132px);
+    grid-template-rows: repeat(3, 132px);
+    gap: 16px;
   }
-  .tiles img {
-    width: 240px; height: 240px; display: block;
-    border-radius: 24px;
-    filter: drop-shadow(0 24px 40px rgba(0,0,0,0.45));
+  .key {
+    width: 132px; height: 132px;
+    border-radius: 16px;
+    background: #0a0b0d;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.04),
+      inset 0 2px 4px rgba(0,0,0,0.6),
+      0 1px 0 rgba(255,255,255,0.02);
+    overflow: hidden;
+    display: block;
   }
+  .key img { width: 100%; height: 100%; display: block; }
 
-  /* The hero key gets visual prominence: spans 2 cols + 2 rows in the grid */
-  .tiles .hero {
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 2;
-    width: 512px; height: 512px;
-    border-radius: 48px;
+  /* Logo nub at the top-right corner of the deck (cosmetic device cue) */
+  .nub {
+    position: absolute; top: 12px; right: 24px;
+    width: 36px; height: 8px; border-radius: 4px;
+    background: linear-gradient(90deg, #2a2c30, #1a1b1e);
+    transform: translateZ(2px);
   }
 </style>
 </head>
 <body>
-<div class="root">
+<div class="scene">
 
+  <!-- ── Copy ────────────────────────────────────────────────────────── -->
   <div class="copy">
     <div class="brand"><span class="accent">Made A Thing</span> Studio</div>
     <h1>
-      Grafana alerts and metrics
-      on your <span class="pop">Stream Deck</span>,
-      zero setup required.
+      Grafana on your
+      <span class="pop">Stream Deck</span>.
+      Zero setup required.
     </h1>
     <div class="byline">
       Free + Pro <span class="dot">·</span>
@@ -88,10 +105,31 @@
     </div>
   </div>
 
-  <div class="tiles">
-    <img class="hero" src="/public/assets/hero-key.svg" alt="" />
-    <img src="/public/assets/tile-sparkline.svg" alt="" />
-    <img src="/public/assets/tile-fire.svg" alt="" />
+  <!-- ── Device ──────────────────────────────────────────────────────── -->
+  <div class="deck-wrap">
+    <div class="deck">
+      <div class="nub"></div>
+      <div class="grid">
+        <!-- Row 1: hero on left, then sparkline + gauge -->
+        <div class="key"><img src="/public/assets/hero-key.svg"      alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-panel.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-sparkline.svg" alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-gauge.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-alerts.svg"   alt="" /></div>
+        <!-- Row 2: variation -->
+        <div class="key"><img src="/public/assets/tile-panel.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-gauge.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/hero-key.svg"      alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-fire.svg"     alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-sparkline.svg" alt="" /></div>
+        <!-- Row 3: bottom -->
+        <div class="key"><img src="/public/assets/tile-alerts.svg"   alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-sparkline.svg" alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-panel.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/tile-gauge.svg"    alt="" /></div>
+        <div class="key"><img src="/public/assets/hero-key.svg"      alt="" /></div>
+      </div>
+    </div>
   </div>
 
 </div>

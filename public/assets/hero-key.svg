@@ -1,22 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" width="144" height="144">
-  <defs>
-    <radialGradient id="bg-h" cx="50%" cy="40%" r="65%">
-      <stop offset="0%" stop-color="#c2580a"/>
-      <stop offset="100%" stop-color="#6b2a04"/>
-    </radialGradient>
-    <linearGradient id="spark-fill-h" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#fff" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <rect width="144" height="144" rx="15" fill="url(#bg-h)"/>
-  <rect x="0.5" y="0.5" width="143" height="28" rx="15" fill="rgba(255,255,255,0.05)" stroke="none"/>
-  <rect x="0.5" y="0.5" width="143" height="1" rx="0.5" fill="rgba(255,255,255,0.08)"/>
-  <text x="72" y="17" text-anchor="middle" fill="#fde0c2" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="10" font-weight="600" letter-spacing="0.09em">API LATENCY</text>
-  <text x="72" y="64" text-anchor="middle" fill="#fff" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="38" font-weight="700" letter-spacing="-0.02em">87</text>
-  <text x="72" y="80" text-anchor="middle" fill="rgba(253,224,194,0.8)" font-family="ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="500" letter-spacing="0.05em">ms</text>
-  <path d="M14,122 C19,116 24,112 29,108 C34,104 39,116 44,112 C49,108 54,96 59,100 C64,104 69,106 74,98 C79,90 84,88 89,84 C94,80 99,90 104,84 C109,78 114,74 119,70 C122,68 124,67 126,66" fill="url(#spark-fill-h)" stroke="none"/>
-  <path d="M14,122 C19,116 24,112 29,108 C34,104 39,116 44,112 C49,108 54,96 59,100 C64,104 69,106 74,98 C79,90 84,88 89,84 C94,80 99,90 104,84 C109,78 114,74 119,70 C122,68 124,67 126,66" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="126" cy="66" r="3" fill="#fff"/>
-  <circle cx="126" cy="66" r="5.5" fill="rgba(255,255,255,0.2)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144">
+  <rect width="144" height="144" rx="8" fill="#6d2f07"/>
+  <text x="72" y="24" font-family="sans-serif" font-size="18" fill="#ffffff" fill-opacity="0.8" text-anchor="middle">API LATENCY</text>
+  <text x="72" y="56" font-family="sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle">87 ms</text>
+  <text x="72" y="76" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7" text-anchor="middle">▲ 4.8%</text>
+  <polygon points="8,136 22.22222222222222,129.33333333333334 36.44444444444444,121.55555555555556 50.666666666666664,114.88888888888889 64.88888888888889,118.22222222222223 79.11111111111111,108.22222222222223 93.33333333333333,102.66666666666667 107.55555555555556,96 121.77777777777777,90.44444444444444 136,86 136,136 8,136" fill="#ffffff" fill-opacity="0.2"/>
+  <path d="M8,136 L22.22222222222222,129.33333333333334 L36.44444444444444,121.55555555555556 L50.666666666666664,114.88888888888889 L64.88888888888889,118.22222222222223 L79.11111111111111,108.22222222222223 L93.33333333333333,102.66666666666667 L107.55555555555556,96 L121.77777777777777,90.44444444444444 L136,86" stroke="#ffffff" stroke-width="2" fill="none"/>
 </svg>
