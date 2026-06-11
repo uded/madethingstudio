@@ -1,0 +1,316 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Topbar from "../../components/Topbar.astro";
+import Footer from "../../components/Footer.astro";
+import SectionLabel from "../../components/SectionLabel.astro";
+
+const toc = [
+  { id: "requirements", label: "Requirements" },
+  { id: "install", label: "Install" },
+  { id: "first-grafana-instance", label: "Connect a Grafana instance" },
+  { id: "service-account-token", label: "Create the service-account token" },
+  { id: "first-key", label: "Drop your first key" },
+  { id: "alerts", label: "Alerts" },
+  { id: "dial-pro", label: "Dial support (Stream Deck +, Pro)" },
+  { id: "free-vs-pro", label: "What's in Free vs Pro" },
+  { id: "upgrade", label: "Upgrade Free → Pro" },
+  { id: "troubleshooting", label: "Troubleshooting" },
+];
+---
+<Layout
+  title="Support — Grafana for Stream Deck"
+  description="Install, connect a Grafana instance, drop actions on keys, and troubleshoot common errors for the Grafana for Stream Deck plugin."
+>
+  <Topbar />
+  <main>
+    <!-- Header -->
+    <section class="border-b border-(--color-border)">
+      <div class="mx-auto max-w-5xl px-6 py-16">
+        <SectionLabel label="Support" />
+        <h1 class="text-3xl md:text-4xl font-semibold tracking-tight text-(--color-fg) max-w-2xl">
+          Grafana for Stream Deck — setup and support
+        </h1>
+        <p class="mt-4 text-base leading-relaxed text-(--color-fg-muted) max-w-2xl">
+          Plain, step-by-step install + configuration. Skip to <a href="#troubleshooting" class="underline decoration-(--color-grafana) underline-offset-4 hover:text-(--color-grafana)">Troubleshooting</a> if something's wrong already.
+        </p>
+      </div>
+    </section>
+
+    <!-- TOC -->
+    <section class="border-b border-(--color-border)">
+      <div class="mx-auto max-w-5xl px-6 py-10">
+        <p class="text-xs font-medium uppercase tracking-[0.16em] text-(--color-fg-dim) mb-4">On this page</p>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+          {toc.map((t) => (
+            <li>
+              <a href={`#${t.id}`} class="text-(--color-fg-muted) hover:text-(--color-grafana) transition-colors">{t.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Requirements -->
+    <section id="requirements" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-6">Requirements</h2>
+        <ul class="space-y-3 text-(--color-fg-muted) text-[15px] leading-relaxed">
+          <li><strong class="text-(--color-fg) font-semibold">Stream Deck app:</strong> 6.9 or later.</li>
+          <li><strong class="text-(--color-fg) font-semibold">OS:</strong> macOS 10.15+ or Windows 10+.</li>
+          <li><strong class="text-(--color-fg) font-semibold">Hardware:</strong> Stream Deck MK.2 / XL / Mini / Plus / Neo, or the Stream Deck Mobile app on iOS or Android.</li>
+          <li><strong class="text-(--color-fg) font-semibold">Grafana:</strong> any modern Grafana — OSS, Cloud, or self-hosted. Unified Alerting enabled if you want alert keys.</li>
+          <li><strong class="text-(--color-fg) font-semibold">Network:</strong> the host running the Stream Deck app must reach your Grafana over HTTP(S). Behind a corporate proxy or Cloudflare Access? See <a href="#troubleshooting" class="underline decoration-(--color-grafana) underline-offset-4 hover:text-(--color-grafana)">Troubleshooting</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Install -->
+    <section id="install" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-6">Install</h2>
+        <p class="text-(--color-fg-muted) text-[15px] leading-relaxed mb-6">
+          The recommended path is the Stream Deck Marketplace. Two listings — pick the tier you want.
+        </p>
+
+        <div class="rounded-[var(--radius-card)] border border-(--color-border) bg-(--color-bg-card) p-6 mb-4">
+          <h3 class="text-lg font-semibold text-(--color-fg) mb-2">From the Stream Deck Marketplace</h3>
+          <ol class="list-decimal list-inside space-y-2 text-(--color-fg-muted) text-[15px] leading-relaxed">
+            <li>Open <a href="https://marketplace.elgato.com" class="text-(--color-grafana) hover:text-(--color-grafana-hover) underline underline-offset-4">marketplace.elgato.com</a> and search for <code class="font-mono text-sm text-(--color-fg)">Grafana</code>.</li>
+            <li>Pick <strong class="text-(--color-fg) font-semibold">Grafana</strong> (Free) or <strong class="text-(--color-fg) font-semibold">Grafana Pro</strong> (one-time purchase).</li>
+            <li>Click <em>Install</em> — your Stream Deck app opens and adds the plugin.</li>
+            <li>Both tiers can be installed at the same time. They show up as separate categories in the action sidebar (<em>Grafana</em> and <em>Grafana Pro</em>), so you can mix Free and Pro keys on the same deck.</li>
+          </ol>
+        </div>
+
+        <div class="rounded-[var(--radius-card)] border border-(--color-border) bg-(--color-bg-card) p-6">
+          <h3 class="text-lg font-semibold text-(--color-fg) mb-2">Manual install (advanced)</h3>
+          <p class="text-(--color-fg-muted) text-[15px] leading-relaxed mb-3">
+            If your environment can't use the Marketplace, drag a <code class="font-mono text-sm text-(--color-fg)">.streamDeckPlugin</code> file directly onto the Stream Deck app icon. The plugin installs into the same per-user location the Marketplace uses. Marketplace updates supersede manually-installed copies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect a Grafana instance -->
+    <section id="first-grafana-instance" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-6">Connect a Grafana instance</h2>
+        <ol class="list-decimal list-inside space-y-3 text-(--color-fg-muted) text-[15px] leading-relaxed">
+          <li>Open the Stream Deck app and drag a <strong class="text-(--color-fg) font-semibold">Grafana Panel</strong> action onto any key.</li>
+          <li>In the right-side inspector, click <em>Add</em> under <em>Grafana Instances</em>.</li>
+          <li>Give the instance a label (e.g. <em>Production</em>, <em>Staging</em>).</li>
+          <li>Paste the Grafana base URL — for example <code class="font-mono text-sm text-(--color-fg)">https://grafana.example.com</code>. No trailing slash; no path.</li>
+          <li>Paste a service-account token (see next section).</li>
+          <li>Click <em>Test Connection</em>. A green dot + Grafana version means you're connected.</li>
+          <li>You can add multiple instances and switch between them per key. <strong class="text-(--color-fg) font-semibold">Pro</strong> lets each key point at a different instance simultaneously.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Service-account token -->
+    <section id="service-account-token" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-6">Create the service-account token</h2>
+        <p class="text-(--color-fg-muted) text-[15px] leading-relaxed mb-6">
+          The plugin authenticates as a Grafana service account. <strong class="text-(--color-fg) font-semibold">Viewer role is enough.</strong> Don't reuse a personal API key — service accounts are revocable per device.
+        </p>
+
+        <ol class="list-decimal list-inside space-y-3 text-(--color-fg-muted) text-[15px] leading-relaxed mb-6">
+          <li>In Grafana, go to <em>Administration → Service accounts</em>.</li>
+          <li>Click <em>Add service account</em>. Name it something obvious, e.g. <code class="font-mono text-sm text-(--color-fg)">stream-deck-uded-macbook</code>.</li>
+          <li>Set role: <strong class="text-(--color-fg) font-semibold">Viewer</strong> (Editor/Admin not required and not recommended).</li>
+          <li>Click into the new account → <em>Add service account token</em>. Set expiration as your policy dictates.</li>
+          <li>Copy the token immediately — Grafana shows it once. Paste it into the Stream Deck inspector.</li>
+        </ol>
+
+        <div class="rounded-[var(--radius-card)] border border-(--color-border) bg-(--color-bg-card) p-6">
+          <p class="text-xs font-medium uppercase tracking-[0.16em] text-(--color-pro) mb-2">Permissions needed</p>
+          <ul class="space-y-2 text-(--color-fg-muted) text-[15px] leading-relaxed">
+            <li><strong class="text-(--color-fg) font-semibold">Read</strong> on Dashboards — to enumerate dashboards and panels.</li>
+            <li><strong class="text-(--color-fg) font-semibold">Read</strong> on Alerting — for alert states and counts.</li>
+            <li>Folder ACLs apply: the plugin sees exactly what the token sees.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- First key -->
+    <section id="first-key" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-6">Drop your first key</h2>
+        <ol class="list-decimal list-inside space-y-3 text-(--color-fg-muted) text-[15px] leading-relaxed">
+          <li>Drag a <strong class="text-(--color-fg) font-semibold">Grafana Panel</strong> action onto a key.</li>
+          <li>Confirm the connection shows green.</li>
+          <li>Type into the <em>Dashboard</em> search field — e.g. <em>cpu</em>. Pick a dashboard.</li>
+          <li>Pick the panel from the <em>Panel</em> dropdown. Supported types are tagged <em>SUPPORTED</em>; unsupported types are still visible but greyed.</li>
+          <li>Pick a series from the <em>Series</em> dropdown if the panel has more than one.</li>
+          <li>The key renders the panel's current value, sparkline, and threshold color within a few seconds.</li>
+        </ol>
+        <p class="mt-6 text-(--color-fg-muted) text-[15px] leading-relaxed">
+          The default refresh rate is 30 seconds. Lower it per-key in <strong class="text-(--color-fg) font-semibold">Pro</strong> if you need faster updates during an incident.
+        </p>
+      </div>
+    </section>
+
+    <!-- Alerts -->
+    <section id="alerts" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-6">Alerts</h2>
+        <p class="text-(--color-fg-muted) text-[15px] leading-relaxed mb-4">
+          The <strong class="text-(--color-fg) font-semibold">Grafana Alert</strong> action has two modes:
+        </p>
+        <ul class="space-y-3 text-(--color-fg-muted) text-[15px] leading-relaxed mb-6">
+          <li><strong class="text-(--color-fg) font-semibold">Single rule</strong> — pick one alert rule. The key shows that rule's state (firing / pending / normal) with a colored background.</li>
+          <li><strong class="text-(--color-fg) font-semibold">Active count</strong> — the key shows a number: how many rules across the instance are currently firing. Yellow at N firing, red at M. Pending alerts show a corner badge (style configurable on Pro: badge / label / ring / hidden).</li>
+        </ul>
+        <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+          Long-pressing a single-rule key opens the rule's view in your browser. Long-pressing a count key opens the alerting list filtered to <code class="font-mono text-sm text-(--color-fg)">state:firing</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Dial -->
+    <section id="dial-pro" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-6">Dial support (Stream Deck +, Pro)</h2>
+        <p class="text-(--color-fg-muted) text-[15px] leading-relaxed mb-6">
+          Drop the <strong class="text-(--color-fg) font-semibold">Grafana Alert (Pro)</strong> action onto a dial slot on a Stream Deck +. The dial becomes a live browser of currently-firing alerts.
+        </p>
+        <div class="rounded-[var(--radius-card)] border border-(--color-border) bg-(--color-bg-card) p-6 overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-left text-(--color-fg-dim) text-xs uppercase tracking-[0.12em]">
+                <th class="font-medium pb-3">Input</th>
+                <th class="font-medium pb-3">Behavior</th>
+              </tr>
+            </thead>
+            <tbody class="text-(--color-fg-muted)">
+              <tr class="border-t border-(--color-border)">
+                <td class="py-3 pr-4 align-top font-mono text-xs">Rotate</td>
+                <td class="py-3">Browse next / previous firing or pending alert. Firing first, then pending.</td>
+              </tr>
+              <tr class="border-t border-(--color-border)">
+                <td class="py-3 pr-4 align-top font-mono text-xs">Short press</td>
+                <td class="py-3">Reserved for Stream Deck's own multi-action layer cycling — not bound by us, so it always works for layer swaps.</td>
+              </tr>
+              <tr class="border-t border-(--color-border)">
+                <td class="py-3 pr-4 align-top font-mono text-xs">Long press</td>
+                <td class="py-3">Force-refresh the alert list right now (don't wait for the next 30-second poll).</td>
+              </tr>
+              <tr class="border-t border-(--color-border)">
+                <td class="py-3 pr-4 align-top font-mono text-xs">Touch tap</td>
+                <td class="py-3">Open the currently-selected rule's Grafana page (Instances tab) in your browser.</td>
+              </tr>
+              <tr class="border-t border-(--color-border)">
+                <td class="py-3 pr-4 align-top font-mono text-xs">Touch hold</td>
+                <td class="py-3">Toggle the detail view — shows the labels that distinguish this firing instance from others under the same rule.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free vs Pro -->
+    <section id="free-vs-pro" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-6">What's in Free vs Pro</h2>
+        <p class="text-(--color-fg-muted) text-[15px] leading-relaxed mb-4">
+          Free covers the "I want a few panels glanceable" case. Pro covers the "I want the keys to match my dashboard ideology" case. The dividing line: does it let you bend the visual? It's probably Pro.
+        </p>
+        <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+          See the homepage <a href="/#tiers" class="underline decoration-(--color-grafana) underline-offset-4 hover:text-(--color-grafana)">tier comparison</a> for the full matrix. Both tiers can be installed side by side; they appear as separate categories in the Stream Deck action sidebar.
+        </p>
+      </div>
+    </section>
+
+    <!-- Upgrade -->
+    <section id="upgrade" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-6">Upgrade Free → Pro</h2>
+        <ol class="list-decimal list-inside space-y-3 text-(--color-fg-muted) text-[15px] leading-relaxed">
+          <li>Install Grafana Pro from the Marketplace. You can leave Free installed.</li>
+          <li>On any Free-tier key, open the inspector → <em>Config (export / import)</em> → <em>Export</em>. A JSON file downloads.</li>
+          <li>On a Pro-tier key, inspector → <em>Config (export / import)</em> → <em>Import</em>. Pick the file.</li>
+          <li>Pro reads the same settings shape and adds the Pro-only fields as defaults — your dashboard / panel / threshold mapping carries over.</li>
+        </ol>
+        <p class="mt-6 text-(--color-fg-muted) text-[15px] leading-relaxed">
+          About five minutes per key. No need to re-link to Grafana — the instances are stored at the global level and apply to both tiers.
+        </p>
+      </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section id="troubleshooting" class="border-b border-(--color-border) scroll-mt-16">
+      <div class="mx-auto max-w-3xl px-6 py-16">
+        <h2 class="text-2xl font-semibold tracking-tight text-(--color-fg) mb-8">Troubleshooting</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-base font-semibold text-(--color-fg) mb-2">"Test Connection" fails — red dot, 401</h3>
+            <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+              The token is wrong, expired, or doesn't have permission. Regenerate the token in Grafana and paste it again. If you're behind Cloudflare Access or another reverse proxy that requires its own credential, see the next entry.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-semibold text-(--color-fg) mb-2">Grafana behind Cloudflare Access / proxy auth</h3>
+            <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+              <strong class="text-(--color-fg) font-semibold">Pro</strong> supports custom HTTP headers per Grafana instance. Add <code class="font-mono text-sm text-(--color-fg)">CF-Access-Client-Id</code> and <code class="font-mono text-sm text-(--color-fg)">CF-Access-Client-Secret</code> (or your equivalent) in the instance settings. Free doesn't expose this; you'd have to tunnel directly to Grafana from the host running Stream Deck.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-semibold text-(--color-fg) mb-2">Self-signed TLS / private CA</h3>
+            <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+              Not currently supported on either tier. The plugin uses Node's bundled root CAs. Workaround: terminate TLS on a reverse proxy with a public-CA cert, or add your internal CA to the host's system trust store before launching Stream Deck.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-semibold text-(--color-fg) mb-2">Panel renders the wrong series</h3>
+            <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+              Multi-series panels expose a <em>Series</em> dropdown in the inspector. Pick the specific one you want. On Pro, you can also override the title with a <em>Custom label</em> so the key shows what's meaningful instead of the panel's verbose name.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-semibold text-(--color-fg) mb-2">Panel value or threshold colors look wrong</h3>
+            <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+              The plugin inherits thresholds and units from the panel's own Grafana config. If they look wrong, check the panel in Grafana — the plugin is probably right and the panel has stale or misconfigured thresholds. On Pro, you can override thresholds per key.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-semibold text-(--color-fg) mb-2">Key shows "No data"</h3>
+            <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+              The query returned an empty result for the current time range. Common causes: the metric stopped reporting, the panel's time range doesn't intersect with the data, or the data source itself is unreachable from Grafana. Verify in Grafana first.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-semibold text-(--color-fg) mb-2">Long alert names get cut off on the key</h3>
+            <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+              Use the <em>Custom label</em> field (Pro) to override the rule name with something shorter. Font sizes for title and value are also tunable per key on Pro.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-semibold text-(--color-fg) mb-2">Stream Deck app stops rendering the plugin after a system sleep</h3>
+            <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+              Rare, usually resolves on the next 30-second poll. If it doesn't: in the Stream Deck app, right-click the action → <em>Remove</em>, then drag it back onto the key. As a heavier fix, quit and reopen the Stream Deck app to restart the plugin host.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-base font-semibold text-(--color-fg) mb-2">I want to file a bug or feature request</h3>
+            <p class="text-(--color-fg-muted) text-[15px] leading-relaxed">
+              Email <a href="mailto:support@madeathing.studio" class="text-(--color-grafana) hover:text-(--color-grafana-hover) underline underline-offset-4">support@madeathing.studio</a> with: tier (Free or Pro), plugin version (Stream Deck app → Plugins → version field), Grafana version, OS, and what you expected vs. what you saw. Screenshots help.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

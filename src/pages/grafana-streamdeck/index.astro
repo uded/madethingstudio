@@ -1,0 +1,66 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Topbar from "../../components/Topbar.astro";
+import Footer from "../../components/Footer.astro";
+import SectionLabel from "../../components/SectionLabel.astro";
+
+const links = [
+  {
+    title: "Stream Deck Marketplace — Free",
+    href: "https://marketplace.elgato.com",
+    body: "Install the free tier from the official Elgato Marketplace. Recommended path for most users.",
+  },
+  {
+    title: "Stream Deck Marketplace — Pro",
+    href: "https://marketplace.elgato.com",
+    body: "Per-key thresholds, custom labels, font overrides, gauges, trend arrows, webhooks, multi-instance per key, dial support (Stream Deck +).",
+  },
+  {
+    title: "Support & setup guide",
+    href: "/grafana-streamdeck/support",
+    body: "How to install, connect a Grafana instance, drop actions on keys, troubleshoot common errors. Read this if anything isn't behaving.",
+  },
+  {
+    title: "Privacy",
+    href: "/privacy",
+    body: "Zero telemetry. Your config lives on your machine; the only network traffic is from your Stream Deck to your Grafana.",
+  },
+];
+---
+<Layout
+  title="Grafana for Stream Deck — Made A Thing Studio"
+  description="Live Grafana panels and alerts on your Stream Deck. Setup, support, and download links for the Free and Pro tiers."
+>
+  <Topbar />
+  <main>
+    <section class="border-b border-(--color-border)">
+      <div class="mx-auto max-w-5xl px-6 py-20">
+        <SectionLabel label="Grafana for Stream Deck" />
+        <h1 class="text-3xl md:text-4xl font-semibold tracking-tight text-(--color-fg) max-w-2xl">
+          Live Grafana panels and alerts on your Stream Deck.
+        </h1>
+        <p class="mt-4 text-base leading-relaxed text-(--color-fg-muted) max-w-2xl">
+          Values, sparklines, threshold colors. Free + Pro. Zero telemetry — your config stays local.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="mx-auto max-w-5xl px-6 py-20">
+        <SectionLabel label="Get started" />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {links.map((l) => (
+            <a
+              href={l.href}
+              class="block rounded-[var(--radius-card)] border border-(--color-border) bg-(--color-bg-card) p-6 hover:bg-(--color-bg-card-hover) hover:border-(--color-border-strong) transition-colors"
+            >
+              <h3 class="text-lg font-semibold text-(--color-fg) mb-2">{l.title}</h3>
+              <p class="text-sm leading-relaxed text-(--color-fg-muted)">{l.body}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
