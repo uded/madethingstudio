@@ -1,5 +1,6 @@
 ---
 import "../styles/globals.css";
+import CookieConsent from "../components/CookieConsent.astro";
 
 interface Props {
   title: string;
@@ -13,6 +14,22 @@ const url = canonical ?? Astro.url.href;
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Consent Mode v2 defaults — MUST run before GTM loads -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      (function () {
+        var stored = (document.cookie.match(/(?:^|; )mts-consent=([^;]*)/) || [])[1];
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: stored === "granted" ? "granted" : "denied",
+          wait_for_update: 500
+        });
+      })();
+    </script>
+    <!-- End Consent Mode v2 defaults -->
     <!-- Google Tag Manager -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -44,5 +61,6 @@ const url = canonical ?? Astro.url.href;
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <slot />
+    <CookieConsent />
   </body>
 </html>

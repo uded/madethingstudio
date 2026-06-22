@@ -1,0 +1,81 @@
+---
+/* GDPR cookie consent banner wired to Google Consent Mode v2.
+ * No dependencies — styled with the site's existing theme tokens.
+ * The consent *default* (denied) is set in Layout.astro, in <head>,
+ * BEFORE the GTM snippet. This banner only sends the *update*. */
+---
+<div
+  id="cookie-consent"
+  hidden
+  role="dialog"
+  aria-live="polite"
+  aria-label="Cookie consent"
+  class="fixed inset-x-0 bottom-0 z-50 border-t border-(--color-border) bg-(--color-bg-elevated)/95 backdrop-blur"
+>
+  <div class="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between flex-wrap gap-4">
+    <p class="text-sm text-(--color-fg-muted) max-w-xl">
+      We use cookies for analytics to understand how the site is used. You can accept or reject this anytime.
+      <a href="/privacy" class="text-(--color-fg) underline underline-offset-2 hover:text-(--color-grafana) transition-colors">Privacy Policy</a>.
+    </p>
+    <div class="flex shrink-0 gap-3">
+      <button
+        type="button"
+        data-consent="reject"
+        class="inline-flex items-center justify-center h-10 px-5 rounded-[var(--radius-button)] bg-transparent border border-(--color-border) text-(--color-fg-muted) hover:bg-(--color-bg-card-hover) hover:text-(--color-fg) hover:border-(--color-border-strong) text-sm font-medium transition-colors"
+      >Reject all</button>
+      <button
+        type="button"
+        data-consent="accept"
+        class="inline-flex items-center justify-center h-10 px-5 rounded-[var(--radius-button)] bg-(--color-grafana) text-(--color-fg) hover:bg-(--color-grafana-hover) text-sm font-semibold transition-colors"
+      >Accept all</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var KEY = "mts-consent";
+    var el = document.getElementById("cookie-consent");
+
+    function getCookie(name) {
+      return document.cookie.split("; ").reduce(function (acc, c) {
+        var p = c.split("=");
+        return p[0] === name ? decodeURIComponent(p[1] || "") : acc;
+      }, "");
+    }
+    function setCookie(name, value) {
+      var d = new Date();
+      d.setTime(d.getTime() + 180 * 864e5); // 180 days
+      document.cookie =
+        name + "=" + encodeURIComponent(value) +
+        "; expires=" + d.toUTCString() + "; path=/; SameSite=Lax";
+    }
+
+    function show() { if (el) el.hidden = false; }
+    function hide() { if (el) el.hidden = true; }
+
+    function apply(choice) {
+      var granted = choice === "accept";
+      // window.gtag is defined by the consent-default script in <head>.
+      if (typeof window.gtag === "function") {
+        window.gtag("consent", "update", {
+          analytics_storage: granted ? "granted" : "denied"
+        });
+      }
+      setCookie(KEY, granted ? "granted" : "denied");
+      hide();
+    }
+
+    // Lets a "Cookie settings" link anywhere re-open the banner.
+    window.openCookieSettings = show;
+
+    if (!getCookie(KEY)) show();
+
+    if (el) {
+      el.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-consent]");
+        if (btn) apply(btn.getAttribute("data-consent"));
+      });
+    }
+  })();
+</script>
