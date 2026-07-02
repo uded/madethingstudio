@@ -1,0 +1,9 @@
+{
+  "projects": [
+    {
+      "name": "Grafana for Stream Deck",
+      "description": "Live Grafana panels and alerts on your Stream Deck.",
+      "url": "https://madeathing.studio/grafana-streamdeck"
+    }
+  ]
+}
